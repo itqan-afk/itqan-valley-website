@@ -94,16 +94,14 @@ export default function Home() {
           <div className="hero-actions"><a className="button primary" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div>
           <div className="trust-row"><span><Check /> خدمة مخصصة</span><span><Check /> منتجات جاهزة</span><span><Check /> تنفيذ باحتراف</span></div>
         </div>
-        <div className="hero-visual" aria-label="معاينة حزمة إدارة الأداء التنفيذي">
+        <div className="hero-visual" aria-label="حزم إتقان فالي">
           <div className="visual-backdrop" />
-          <div className="hero-cover">
-            <div className="cover-meta"><span>ITQAN VALLEY</span><small>IV-EPM-001</small></div>
-            <h2>حزمة إدارة الأداء التنفيذي</h2>
-            <p>Excel + PowerPoint | عربي وإنجليزي</p>
-            <div className="cover-dashboard"><div className="dashboard-title">لوحة الأداء التنفيذية | إتقان فالي</div><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /></div>
-            <strong>قابلة للتعديل</strong>
+          <div className="hero-packages">
+            <a className="hero-package epm" href="#product"><div className="package-code"><span>KPI</span><small>IV-EPM-001</small></div><h2>حزمة إدارة الأداء التنفيذي</h2><p>لوحة مؤشرات ومتابعة إجراءات وتقرير تنفيذي.</p><b>249 ر.س</b></a>
+            <a className="hero-package career" href="#packages"><div className="package-code"><span>CV</span><small>للباحث عن عمل</small></div><h2>بكج البداية المهنية</h2><p>سيرة ATS وخطاب تقديم وجولة تعديلات.</p><b>ابتداءً من 269 ر.س</b></a>
+            <a className="hero-package professional" href="#packages"><div className="package-code"><span>PRO</span><small>الأكثر تكاملًا</small></div><h2>بكج الحضور المهني</h2><p>سيرة باللغتين وLinkedIn وخطاب مخصص.</p><b>ابتداءً من 549 ر.س</b></a>
+            <a className="hero-package business" href="#packages"><div className="package-code"><span>OPS</span><small>للمنشآت</small></div><h2>بكج الانطلاقة الإدارية</h2><p>مؤشرات وقرارات وقالب تقرير تنفيذي.</p><b>حسب النطاق</b></a>
           </div>
-          <div className="floating-card card-one"><b>ATS</b><span>مسار مهني أقوى</span></div><div className="floating-card card-two"><b>KPI</b><span>أعمال أكثر وضوحًا</span></div>
         </div>
       </section>
 

@@ -25,11 +25,11 @@ const careerProducts = [
   { tag: "تقديم أقوى", title: "خطاب تقديم وظيفي", text: "خطاب مخصص يربط خبراتك بمتطلبات الوظيفة المستهدفة.", price: "ابتداءً من 119 ر.س", code: "CL" },
   { tag: "للقيادات", title: "سيرة ذاتية تنفيذية", text: "سيرة تبرز الأثر والقيادة والإنجازات وصناعة القرار.", price: "ابتداءً من 349 ر.س", code: "EX" },
   { tag: "مراجعة", title: "تقييم السيرة الحالية", text: "مراجعة المحتوى والهيكل والكلمات المفتاحية مع توصيات عملية.", price: "ابتداءً من 89 ر.س", code: "RV" },
-  { tag: "بكج", title: "التميز المهني", text: "سيرة عربية وإنجليزية، LinkedIn، وخطاب تقديم في حزمة واحدة.", price: "ابتداءً من 549 ر.س", code: "PK" },
+  { tag: "باقة", title: "التميز المهني", text: "سيرة عربية وإنجليزية، LinkedIn، وخطاب تقديم ضمن باقة واحدة.", price: "ابتداءً من 549 ر.س", code: "PK" },
 ];
 
 const businessProducts = [
-  { tag: "منتج رقمي", title: "حزمة إدارة الأداء التنفيذي", text: "لوحة مؤشرات، متابعة إجراءات، وقالب تقرير تنفيذي بالعربية والإنجليزية.", price: "249 ر.س", code: "KPI" },
+  { tag: "منتج رقمي", title: "باقة إدارة الأداء التنفيذي", text: "لوحة مؤشرات، متابعة إجراءات، وقالب تقرير تنفيذي بالعربية والإنجليزية.", price: "249 ر.س", code: "KPI" },
   { tag: "خدمة تخصيص", title: "لوحة مؤشرات مخصصة", text: "تصميم مؤشرات ومستهدفات ولوحة متابعة تناسب إدارة أو منشأة محددة.", price: "حسب النطاق", code: "DB" },
   { tag: "مكتب تنفيذي", title: "نظام الاجتماعات والقرارات", text: "متابعة القرارات والملاك والمواعيد والتصعيد حتى الإغلاق.", price: "حسب النطاق", code: "EO" },
   { tag: "العقود", title: "متابع العقود والمشتريات", text: "أداة منظمة لمتابعة المنافسات والعقود والتجديدات والتغييرات والموردين.", price: "حسب النطاق", code: "CT" },
@@ -47,7 +47,7 @@ const workflow = [
 
 const services = [
   { number: "01", title: "الخدمات المهنية", text: "سير ذاتية وملفات LinkedIn وخطابات تُصاغ وفق خبرتك والفرصة المستهدفة." },
-  { number: "02", title: "المنتجات الرقمية", text: "قوالب وحزم جاهزة تساعد المهنيين والمنشآت على التنظيم والقياس والمتابعة." },
+  { number: "02", title: "المنتجات الرقمية", text: "قوالب وباقات جاهزة تساعد المهنيين والمنشآت على التنظيم والقياس والمتابعة." },
   { number: "03", title: "حلول الأعمال المخصصة", text: "لوحات وتقارير وإجراءات ومسارات عمل تُبنى وفق واقع الإدارة أو المنشأة." },
 ];
 
@@ -55,9 +55,9 @@ const faqs = [
   ["من تخدم إتقان فالي؟", "نخدم الباحثين عن فرص وظيفية، والموظفين الراغبين في تطوير حضورهم المهني، وأصحاب الأعمال والمنشآت التي تحتاج أدوات متابعة وتقارير وحلول تشغيل واضحة."],
   ["هل الخدمات المهنية مخصصة لكل عميل؟", "نعم. السيرة الذاتية وLinkedIn والخطابات تُبنى وفق خبرة العميل والوظيفة المستهدفة، وليست نصوصًا عامة جاهزة."],
   ["هل الملفات قابلة للتعديل؟", "نعم. جميع ملفات Excel وPowerPoint قابلة للتعديل الداخلي وفق شروط الترخيص."],
-  ["هل تحتاج الحزمة إلى برامج خاصة؟", "تعمل باستخدام Microsoft Excel وPowerPoint، ولا تعتمد على وحدات ماكرو. يُنصح باستخدام إصدار حديث والتحقق من التوافق قبل الاستخدام الرسمي."],
+  ["هل تحتاج الباقة إلى برامج خاصة؟", "تعمل باستخدام Microsoft Excel وPowerPoint، ولا تعتمد على وحدات ماكرو. يُنصح باستخدام إصدار حديث والتحقق من التوافق قبل الاستخدام الرسمي."],
   ["هل البيانات الموجودة حقيقية؟", "لا. البيانات المرفقة تجريبية لشرح طريقة العمل، ويجب استبدالها والتحقق من التعريفات والصيغ قبل الاعتماد."],
-  ["هل يشمل السعر خدمة التخصيص؟", "لا. الحزمة منتج جاهز، بينما تخصيص الهوية والمؤشرات والتقارير خدمة مستقلة تُسعّر حسب النطاق."],
+  ["هل يشمل السعر خدمة التخصيص؟", "لا. الباقة منتج جاهز، بينما تخصيص الهوية والمؤشرات والتقارير خدمة مستقلة تُسعّر حسب النطاق."],
   ["هل يمكن إعادة بيع الملفات؟", "لا. الترخيص للاستخدام الداخلي لمشترٍ واحد داخل منشأة واحدة، ويمنع إعادة البيع أو الترخيص من الباطن أو التوزيع العام."],
 ];
 
@@ -80,7 +80,7 @@ export default function Home() {
           <span><b>إتقان فالي</b><small>حلول الأعمال والتطوير</small></span>
         </a>
         <div className="nav-links">
-          <a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">البكجات</a><a href="#services">خدماتنا</a><a href="#faq">الأسئلة الشائعة</a>
+          <a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#services">خدماتنا</a><a href="#faq">الأسئلة الشائعة</a>
         </div>
         <a className="nav-cta" href="#order">ابدأ طلبك</a>
       </nav>
@@ -94,13 +94,13 @@ export default function Home() {
           <div className="hero-actions"><a className="button primary" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div>
           <div className="trust-row"><span><Check /> خدمة مخصصة</span><span><Check /> منتجات جاهزة</span><span><Check /> تنفيذ باحتراف</span></div>
         </div>
-        <div className="hero-visual" aria-label="حزم إتقان فالي">
+        <div className="hero-visual" aria-label="باقات إتقان فالي">
           <div className="visual-backdrop" />
           <div className="hero-packages">
-            <a className="hero-package epm" href="#product"><div className="package-code"><span>KPI</span><small>IV-EPM-001</small></div><h2>حزمة إدارة الأداء التنفيذي</h2><p>لوحة مؤشرات ومتابعة إجراءات وتقرير تنفيذي.</p><b>249 ر.س</b></a>
-            <a className="hero-package career" href="#packages"><div className="package-code"><span>CV</span><small>للباحث عن عمل</small></div><h2>بكج البداية المهنية</h2><p>سيرة ATS وخطاب تقديم وجولة تعديلات.</p><b>ابتداءً من 269 ر.س</b></a>
-            <a className="hero-package professional" href="#packages"><div className="package-code"><span>PRO</span><small>الأكثر تكاملًا</small></div><h2>بكج الحضور المهني</h2><p>سيرة باللغتين وLinkedIn وخطاب مخصص.</p><b>ابتداءً من 549 ر.س</b></a>
-            <a className="hero-package business" href="#packages"><div className="package-code"><span>OPS</span><small>للمنشآت</small></div><h2>بكج الانطلاقة الإدارية</h2><p>مؤشرات وقرارات وقالب تقرير تنفيذي.</p><b>حسب النطاق</b></a>
+            <a className="hero-package epm" href="#product"><div className="package-code"><span>KPI</span><small>IV-EPM-001</small></div><h2>باقة إدارة الأداء التنفيذي</h2><p>لوحة مؤشرات ومتابعة إجراءات وتقرير تنفيذي.</p><b>249 ر.س</b></a>
+            <a className="hero-package career" href="#packages"><div className="package-code"><span>CV</span><small>للباحث عن عمل</small></div><h2>باقة البداية المهنية</h2><p>سيرة ATS وخطاب تقديم وجولة تعديلات.</p><b>ابتداءً من 269 ر.س</b></a>
+            <a className="hero-package professional" href="#packages"><div className="package-code"><span>PRO</span><small>الأكثر تكاملًا</small></div><h2>باقة الحضور المهني</h2><p>سيرة باللغتين وLinkedIn وخطاب مخصص.</p><b>ابتداءً من 549 ر.س</b></a>
+            <a className="hero-package business" href="#packages"><div className="package-code"><span>OPS</span><small>للمنشآت</small></div><h2>باقة الانطلاقة الإدارية</h2><p>مؤشرات وقرارات وقالب تقرير تنفيذي.</p><b>حسب النطاق</b></a>
           </div>
         </div>
       </section>
@@ -118,16 +118,16 @@ export default function Home() {
       </section>
 
       <section className="section packages-section" id="packages">
-        <div className="section-heading centered"><p className="eyebrow dark"><span /> قيمة أكبر في طلب واحد</p><h2>بكجات تناسب مرحلتك</h2><p>ابدأ بالخدمة التي تحتاجها الآن، أو اختر حزمة تجمع المخرجات الأساسية بسعر أوضح.</p></div>
+        <div className="section-heading centered"><p className="eyebrow dark"><span /> قيمة أكبر في طلب واحد</p><h2>باقات تناسب مرحلتك</h2><p>ابدأ بالخدمة التي تحتاجها الآن، أو اختر باقة تجمع المخرجات الأساسية بسعر أوضح.</p></div>
         <div className="packages-grid">
-          <article><small>للباحث عن عمل</small><h3>بكج البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
-          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>بكج الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
-          <article><small>للمنشأة والإدارة</small><h3>بكج الانطلاقة الإدارية</h3><ul><li><Check />لوحة مؤشرات أساسية</li><li><Check />متابع اجتماعات وقرارات</li><li><Check />قالب تقرير تنفيذي</li></ul><strong>يحدد حسب النطاق</strong><a href="#order">اطلب عرضًا <Arrow /></a></article>
+          <article><small>للباحث عن عمل</small><h3>باقة البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
+          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>باقة الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
+          <article><small>للمنشأة والإدارة</small><h3>باقة الانطلاقة الإدارية</h3><ul><li><Check />لوحة مؤشرات أساسية</li><li><Check />متابع اجتماعات وقرارات</li><li><Check />قالب تقرير تنفيذي</li></ul><strong>يحدد حسب النطاق</strong><a href="#order">اطلب عرضًا <Arrow /></a></article>
         </div>
       </section>
 
       <section className="section product-section" id="product">
-        <div className="section-heading"><div><p className="eyebrow dark"><span /> منتج مميز للأعمال</p><h2>حزمة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
+        <div className="section-heading"><div><p className="eyebrow dark"><span /> منتج مميز للأعمال</p><h2>باقة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
         <div className="product-grid">
           <div className="product-gallery"><div className="dashboard-shell"><div className="dashboard-title">لوحة الأداء التنفيذية | إتقان فالي</div><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /></div><div className="file-badges"><span>Excel</span><span>PowerPoint</span><span>عربي</span><span>English</span></div></div>
           <div className="product-details">
@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       <section className="section comparison-section">
-        <div className="comparison-copy"><p className="eyebrow dark"><span /> القيمة العملية</p><h2>ليست لوحة أرقام فقط</h2><p>الحزمة تربط القياس بالمسؤولية، وتمنح الإدارة صورة مختصرة يمكن أن تتحول مباشرة إلى إجراء وقرار.</p><div className="metric"><strong>4</strong><span>طبقات مترابطة<br />مؤشر • نتيجة • إجراء • قرار</span></div></div>
+        <div className="comparison-copy"><p className="eyebrow dark"><span /> القيمة العملية</p><h2>ليست لوحة أرقام فقط</h2><p>الباقة تربط القياس بالمسؤولية، وتمنح الإدارة صورة مختصرة يمكن أن تتحول مباشرة إلى إجراء وقرار.</p><div className="metric"><strong>4</strong><span>طبقات مترابطة<br />مؤشر • نتيجة • إجراء • قرار</span></div></div>
         <div className="comparison-cards"><article className="muted-card"><small>قبل</small><h3>ملفات متفرقة</h3><p>تعريفات مختلفة، متابعة يدوية، ومسؤوليات غير واضحة.</p></article><article className="accent-card"><small>بعد</small><h3>دورة إدارية واحدة</h3><p>بيانات موحدة، حالة واضحة، وإجراء يمكن متابعته حتى الإغلاق.</p></article></div>
       </section>
 
@@ -161,12 +161,12 @@ export default function Home() {
 
       <section className="order-section" id="order">
         <div><p className="eyebrow"><span /> اختر المسار المناسب</p><h2>فرص مهنية أقوى<br />وأعمال أكثر إتقانًا.</h2></div>
-        <div className="order-card"><p>حدد الخدمة أو البكج المناسب، وسيتم تأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button light" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div><small>سيتم ربط أزرار الطلب بصفحات الدفع بعد إنشاء المنتجات على منصة المتجر.</small></div>
+        <div className="order-card"><p>حدد الخدمة أو الباقة المناسبة، وسيتم تأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button light" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div><small>سيتم ربط أزرار الطلب بصفحات الدفع بعد إنشاء المنتجات على منصة المتجر.</small></div>
       </section>
 
       <footer>
         <div className="brand footer-brand"><img src="/itqan-icon.svg" alt="" /><span><b>إتقان فالي</b><small>Business Solutions &amp; Development</small></span></div>
-        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p><div><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">البكجات</a><a href="#faq">الأسئلة الشائعة</a></div><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small>
+        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p><div><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#faq">الأسئلة الشائعة</a></div><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small>
       </footer>
     </main>
   );

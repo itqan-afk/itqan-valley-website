@@ -120,8 +120,8 @@ export default function Home() {
       <section className="section packages-section" id="packages">
         <div className="section-heading centered"><p className="eyebrow dark"><span /> قيمة أكبر في طلب واحد</p><h2>بكجات تناسب مرحلتك</h2><p>ابدأ بالخدمة التي تحتاجها الآن، أو اختر حزمة تجمع المخرجات الأساسية بسعر أوضح.</p></div>
         <div className="packages-grid">
-          <article><small>للباحث عن عمل</small><h3>بكج البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر البكج <Arrow /></a></article>
-          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>بكج الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر البكج <Arrow /></a></article>
+          <article><small>للباحث عن عمل</small><h3>بكج البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
+          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>بكج الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
           <article><small>للمنشأة والإدارة</small><h3>بكج الانطلاقة الإدارية</h3><ul><li><Check />لوحة مؤشرات أساسية</li><li><Check />متابع اجتماعات وقرارات</li><li><Check />قالب تقرير تنفيذي</li></ul><strong>يحدد حسب النطاق</strong><a href="#order">اطلب عرضًا <Arrow /></a></article>
         </div>
       </section>

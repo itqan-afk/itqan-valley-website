@@ -95,7 +95,14 @@ export default function Home() {
           <div className="trust-row"><span><Check /> خدمة مخصصة</span><span><Check /> منتجات جاهزة</span><span><Check /> تنفيذ باحتراف</span></div>
         </div>
         <div className="hero-visual" aria-label="معاينة حزمة إدارة الأداء التنفيذي">
-          <div className="visual-backdrop" /><img src="/product-cover.png" alt="غلاف حزمة إدارة الأداء التنفيذي من إتقان فالي" />
+          <div className="visual-backdrop" />
+          <div className="hero-cover">
+            <div className="cover-meta"><span>ITQAN VALLEY</span><small>IV-EPM-001</small></div>
+            <h2>حزمة إدارة الأداء التنفيذي</h2>
+            <p>Excel + PowerPoint | عربي وإنجليزي</p>
+            <div className="cover-dashboard"><div className="dashboard-title">لوحة الأداء التنفيذية | إتقان فالي</div><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /></div>
+            <strong>قابلة للتعديل</strong>
+          </div>
           <div className="floating-card card-one"><b>ATS</b><span>مسار مهني أقوى</span></div><div className="floating-card card-two"><b>KPI</b><span>أعمال أكثر وضوحًا</span></div>
         </div>
       </section>
@@ -124,7 +131,7 @@ export default function Home() {
       <section className="section product-section" id="product">
         <div className="section-heading"><div><p className="eyebrow dark"><span /> منتج مميز للأعمال</p><h2>حزمة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
         <div className="product-grid">
-          <div className="product-gallery"><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /><div className="file-badges"><span>Excel</span><span>PowerPoint</span><span>عربي</span><span>English</span></div></div>
+          <div className="product-gallery"><div className="dashboard-shell"><div className="dashboard-title">لوحة الأداء التنفيذية | إتقان فالي</div><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /></div><div className="file-badges"><span>Excel</span><span>PowerPoint</span><span>عربي</span><span>English</span></div></div>
           <div className="product-details">
             <p className="sku">IV-EPM-001</p><h3>متابعة واضحة بدل الملفات المتفرقة</h3><p>عرّف مؤشراتك، أدخل النتائج، اكتشف الاستثناءات، تابع الإجراء، وارفع القرار باستخدام ملفات مهنية جاهزة للتخصيص.</p>
             <ul>{productFeatures.map((item) => <li key={item}><Check />{item}</li>)}</ul>

@@ -10,6 +10,23 @@ const Arrow = () => (
   </svg>
 );
 
+const WhatsApp = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" className="contact-icon">
+    <path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M9 8.4c.2-.5.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.5 1 1.4 1.8 2.4 2.3.2.1.4.2.6 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.3-.7 1.8-.5.5-1.4.8-2.3.6-1-.2-2.4-.7-4.1-2.2-1.4-1.3-2.4-2.8-2.7-3.8-.3-.9 0-1.8.4-2.4Z" fill="currentColor" />
+  </svg>
+);
+
+const Mail = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" className="contact-icon">
+    <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const whatsappUrl = "https://wa.me/966555365305?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.";
+const emailUrl = "mailto:hello.Itqan@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A";
+
 const productFeatures = [
   "لوحة أداء تنفيذية عربية وإنجليزية",
   "سجل مؤشرات ومستهدفات وحدود وأوزان",
@@ -161,12 +178,19 @@ export default function Home() {
 
       <section className="order-section" id="order">
         <div><p className="eyebrow"><span /> اختر المسار المناسب</p><h2>فرص مهنية أقوى<br />وأعمال أكثر إتقانًا.</h2></div>
-        <div className="order-card"><p>حدد الخدمة أو الباقة المناسبة، وسيتم تأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button light" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div><small>سيتم ربط أزرار الطلب بصفحات الدفع بعد إنشاء المنتجات على منصة المتجر.</small></div>
+        <div className="order-card"><p>حدد الخدمة أو الباقة المناسبة، وتواصل معنا لتأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsApp /> تواصل عبر واتساب</a><a className="button secondary" href={emailUrl}><Mail /> راسلنا بالبريد</a></div><small>نرد على استفسارات الأفراد وأصحاب الأعمال ونساعدك في اختيار الخدمة المناسبة.</small></div>
       </section>
 
       <footer>
         <div className="brand footer-brand"><img src="/itqan-icon.svg" alt="" /><span><b>إتقان فالي</b><small>Business Solutions &amp; Development</small></span></div>
-        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p><div><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#faq">الأسئلة الشائعة</a></div><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small>
+        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p>
+        <div className="footer-links"><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#faq">الأسئلة الشائعة</a></div>
+        <div className="footer-contact" aria-label="بيانات التواصل">
+          <strong>تواصل معنا</strong>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsApp /><span dir="ltr">+966 55 536 5305</span></a>
+          <a href={emailUrl}><Mail /><span dir="ltr">hello.Itqan@gmail.com</span></a>
+        </div>
+        <div className="footer-legal"><span>رقم شهادة العمل الحر: <b dir="ltr">FL-291569463</b></span><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small></div>
       </footer>
     </main>
   );

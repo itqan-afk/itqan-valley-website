@@ -19,6 +19,24 @@ const productFeatures = [
   "دليل تشغيل وترخيص ثنائي اللغة",
 ];
 
+const careerProducts = [
+  { tag: "الأكثر طلبًا", title: "سيرة ذاتية ATS", text: "صياغة احترافية متوافقة مع أنظمة الفرز، بالعربية أو الإنجليزية.", price: "ابتداءً من 179 ر.س", code: "CV" },
+  { tag: "حضور مهني", title: "تحسين ملف LinkedIn", text: "عنوان وملخص وخبرات ومهارات تعكس قيمتك المهنية بوضوح.", price: "ابتداءً من 179 ر.س", code: "IN" },
+  { tag: "تقديم أقوى", title: "خطاب تقديم وظيفي", text: "خطاب مخصص يربط خبراتك بمتطلبات الوظيفة المستهدفة.", price: "ابتداءً من 119 ر.س", code: "CL" },
+  { tag: "للقيادات", title: "سيرة ذاتية تنفيذية", text: "سيرة تبرز الأثر والقيادة والإنجازات وصناعة القرار.", price: "ابتداءً من 349 ر.س", code: "EX" },
+  { tag: "مراجعة", title: "تقييم السيرة الحالية", text: "مراجعة المحتوى والهيكل والكلمات المفتاحية مع توصيات عملية.", price: "ابتداءً من 89 ر.س", code: "RV" },
+  { tag: "بكج", title: "التميز المهني", text: "سيرة عربية وإنجليزية، LinkedIn، وخطاب تقديم في حزمة واحدة.", price: "ابتداءً من 549 ر.س", code: "PK" },
+];
+
+const businessProducts = [
+  { tag: "منتج رقمي", title: "حزمة إدارة الأداء التنفيذي", text: "لوحة مؤشرات، متابعة إجراءات، وقالب تقرير تنفيذي بالعربية والإنجليزية.", price: "249 ر.س", code: "KPI" },
+  { tag: "خدمة تخصيص", title: "لوحة مؤشرات مخصصة", text: "تصميم مؤشرات ومستهدفات ولوحة متابعة تناسب إدارة أو منشأة محددة.", price: "حسب النطاق", code: "DB" },
+  { tag: "مكتب تنفيذي", title: "نظام الاجتماعات والقرارات", text: "متابعة القرارات والملاك والمواعيد والتصعيد حتى الإغلاق.", price: "حسب النطاق", code: "EO" },
+  { tag: "العقود", title: "متابع العقود والمشتريات", text: "أداة منظمة لمتابعة المنافسات والعقود والتجديدات والتغييرات والموردين.", price: "حسب النطاق", code: "CT" },
+  { tag: "تقارير", title: "تصميم تقرير تنفيذي", text: "تحويل البيانات والمستجدات إلى عرض قيادي مختصر وواضح للقرار.", price: "حسب النطاق", code: "RP" },
+  { tag: "تشغيل", title: "توثيق الإجراءات ومسارات العمل", text: "صياغة إجراءات عملية وتحديد الأدوار ونقاط الاعتماد ومخرجات كل مرحلة.", price: "حسب النطاق", code: "SOP" },
+];
+
 const workflow = [
   ["01", "عرّف المؤشرات", "حدد التعريف والوحدة والمالك والمستهدف وحدود التنبيه."],
   ["02", "أدخل النتائج", "حدّث النتائج الفعلية الشهرية في الخلايا المخصصة للإدخال."],
@@ -28,18 +46,30 @@ const workflow = [
 ];
 
 const services = [
-  { number: "01", title: "الحزم الرقمية", text: "قوالب وأنظمة تشغيل جاهزة تساعد المنشآت على تنظيم العمل والقياس والمتابعة." },
-  { number: "02", title: "التخصيص المؤسسي", text: "تخصيص الهوية والمؤشرات والتقارير وآليات المتابعة وفق احتياج المنشأة." },
-  { number: "03", title: "حلول التطوير", text: "تحويل الإجراءات المتفرقة إلى مسارات واضحة، ومسؤوليات محددة، ومخرجات قابلة للقياس." },
+  { number: "01", title: "الخدمات المهنية", text: "سير ذاتية وملفات LinkedIn وخطابات تُصاغ وفق خبرتك والفرصة المستهدفة." },
+  { number: "02", title: "المنتجات الرقمية", text: "قوالب وحزم جاهزة تساعد المهنيين والمنشآت على التنظيم والقياس والمتابعة." },
+  { number: "03", title: "حلول الأعمال المخصصة", text: "لوحات وتقارير وإجراءات ومسارات عمل تُبنى وفق واقع الإدارة أو المنشأة." },
 ];
 
 const faqs = [
+  ["من تخدم إتقان فالي؟", "نخدم الباحثين عن فرص وظيفية، والموظفين الراغبين في تطوير حضورهم المهني، وأصحاب الأعمال والمنشآت التي تحتاج أدوات متابعة وتقارير وحلول تشغيل واضحة."],
+  ["هل الخدمات المهنية مخصصة لكل عميل؟", "نعم. السيرة الذاتية وLinkedIn والخطابات تُبنى وفق خبرة العميل والوظيفة المستهدفة، وليست نصوصًا عامة جاهزة."],
   ["هل الملفات قابلة للتعديل؟", "نعم. جميع ملفات Excel وPowerPoint قابلة للتعديل الداخلي وفق شروط الترخيص."],
   ["هل تحتاج الحزمة إلى برامج خاصة؟", "تعمل باستخدام Microsoft Excel وPowerPoint، ولا تعتمد على وحدات ماكرو. يُنصح باستخدام إصدار حديث والتحقق من التوافق قبل الاستخدام الرسمي."],
   ["هل البيانات الموجودة حقيقية؟", "لا. البيانات المرفقة تجريبية لشرح طريقة العمل، ويجب استبدالها والتحقق من التعريفات والصيغ قبل الاعتماد."],
   ["هل يشمل السعر خدمة التخصيص؟", "لا. الحزمة منتج جاهز، بينما تخصيص الهوية والمؤشرات والتقارير خدمة مستقلة تُسعّر حسب النطاق."],
   ["هل يمكن إعادة بيع الملفات؟", "لا. الترخيص للاستخدام الداخلي لمشترٍ واحد داخل منشأة واحدة، ويمنع إعادة البيع أو الترخيص من الباطن أو التوزيع العام."],
 ];
+
+function ProductCard({ item, audience }: { item: { tag: string; title: string; text: string; price: string; code: string }; audience: "career" | "business" }) {
+  return (
+    <article className={`catalog-card ${audience}`}>
+      <div className="catalog-top"><span>{item.tag}</span><b>{item.code}</b></div>
+      <h3>{item.title}</h3><p>{item.text}</p>
+      <div className="catalog-bottom"><strong>{item.price}</strong><a href="#order">اطلب الخدمة <Arrow /></a></div>
+    </article>
+  );
+}
 
 export default function Home() {
   return (
@@ -50,30 +80,49 @@ export default function Home() {
           <span><b>إتقان فالي</b><small>حلول الأعمال والتطوير</small></span>
         </a>
         <div className="nav-links">
-          <a href="#product">المنتج</a><a href="#workflow">كيف يعمل؟</a><a href="#services">خدماتنا</a><a href="#faq">الأسئلة الشائعة</a>
+          <a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">البكجات</a><a href="#services">خدماتنا</a><a href="#faq">الأسئلة الشائعة</a>
         </div>
-        <a className="nav-cta" href="#purchase">اطلب الحزمة</a>
+        <a className="nav-cta" href="#order">ابدأ طلبك</a>
       </nav>
 
       <section className="hero" id="top">
         <div className="hero-glow" />
         <div className="hero-copy">
-          <p className="eyebrow"><span /> حلول عملية لتنظيم الأداء والتشغيل</p>
-          <h1>نحوّل أعمالك إلى أنظمة<br /><em>أكثر وضوحًا وكفاءة.</em></h1>
-          <p className="hero-lead">منتجات رقمية وخدمات تطوير مصممة للمنشآت التي تريد متابعة أفضل، قرارات أسرع، وتنفيذًا يمكن قياسه.</p>
-          <div className="hero-actions"><a className="button primary" href="#product">استكشف المنتج <Arrow /></a><a className="button secondary" href="#services">عرض الخدمات</a></div>
-          <div className="trust-row"><span><Check /> عربي أولًا</span><span><Check /> قابل للتعديل</span><span><Check /> جاهز للبدء</span></div>
+          <p className="eyebrow"><span /> تطوير مهني وحلول أعمال تحت سقف واحد</p>
+          <h1>نتقن حضورك المهني<br /><em>ونطوّر طريقة عملك.</em></h1>
+          <p className="hero-lead">خدمات للباحثين عن الوظائف والموظفين، ومنتجات وحلول لأصحاب الأعمال والمنشآت—من السيرة الذاتية إلى أنظمة الأداء والتشغيل.</p>
+          <div className="hero-actions"><a className="button primary" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div>
+          <div className="trust-row"><span><Check /> خدمة مخصصة</span><span><Check /> منتجات جاهزة</span><span><Check /> تنفيذ باحتراف</span></div>
         </div>
         <div className="hero-visual" aria-label="معاينة حزمة إدارة الأداء التنفيذي">
           <div className="visual-backdrop" /><img src="/product-cover.png" alt="غلاف حزمة إدارة الأداء التنفيذي من إتقان فالي" />
-          <div className="floating-card card-one"><b>10</b><span>مؤشرات نشطة</span></div><div className="floating-card card-two"><b>90%</b><span>مستهدف واضح</span></div>
+          <div className="floating-card card-one"><b>ATS</b><span>مسار مهني أقوى</span></div><div className="floating-card card-two"><b>KPI</b><span>أعمال أكثر وضوحًا</span></div>
         </div>
       </section>
 
-      <section className="proof-strip" aria-label="مزايا مختصرة"><p>من المؤشر</p><span>←</span><p>إلى التحليل</p><span>←</span><p>إلى الإجراء</p><span>←</span><p>إلى القرار</p></section>
+      <section className="proof-strip" aria-label="الفئات المستهدفة"><p>للباحثين عن عمل</p><span>•</span><p>للموظفين والمهنيين</p><span>•</span><p>لأصحاب الأعمال</p><span>•</span><p>للمنشآت والإدارات</p></section>
+
+      <section className="section catalog-section career-catalog" id="career">
+        <div className="section-heading"><div><p className="eyebrow dark"><span /> للأفراد والمهنيين</p><h2>خدمات تبني حضورك<br />وتقوّي فرصك المهنية</h2></div><p>نصيغ أدواتك المهنية بما يعكس خبرتك الحقيقية ويخاطب الوظيفة أو المرحلة التي تستهدفها.</p></div>
+        <div className="catalog-grid">{careerProducts.map((item) => <ProductCard key={item.title} item={item} audience="career" />)}</div>
+      </section>
+
+      <section className="section catalog-section business-catalog" id="business">
+        <div className="section-heading"><div><p className="eyebrow"><span /> لأصحاب الأعمال والمنشآت</p><h2>أدوات وحلول تجعل<br />التشغيل أكثر وضوحًا</h2></div><p>منتجات جاهزة وخدمات تخصيص تربط البيانات بالمسؤولية والإجراء والقرار.</p></div>
+        <div className="catalog-grid">{businessProducts.map((item) => <ProductCard key={item.title} item={item} audience="business" />)}</div>
+      </section>
+
+      <section className="section packages-section" id="packages">
+        <div className="section-heading centered"><p className="eyebrow dark"><span /> قيمة أكبر في طلب واحد</p><h2>بكجات تناسب مرحلتك</h2><p>ابدأ بالخدمة التي تحتاجها الآن، أو اختر حزمة تجمع المخرجات الأساسية بسعر أوضح.</p></div>
+        <div className="packages-grid">
+          <article><small>للباحث عن عمل</small><h3>بكج البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر البكج <Arrow /></a></article>
+          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>بكج الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر البكج <Arrow /></a></article>
+          <article><small>للمنشأة والإدارة</small><h3>بكج الانطلاقة الإدارية</h3><ul><li><Check />لوحة مؤشرات أساسية</li><li><Check />متابع اجتماعات وقرارات</li><li><Check />قالب تقرير تنفيذي</li></ul><strong>يحدد حسب النطاق</strong><a href="#order">اطلب عرضًا <Arrow /></a></article>
+        </div>
+      </section>
 
       <section className="section product-section" id="product">
-        <div className="section-heading"><div><p className="eyebrow dark"><span /> المنتج الأول</p><h2>حزمة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
+        <div className="section-heading"><div><p className="eyebrow dark"><span /> منتج مميز للأعمال</p><h2>حزمة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
         <div className="product-grid">
           <div className="product-gallery"><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /><div className="file-badges"><span>Excel</span><span>PowerPoint</span><span>عربي</span><span>English</span></div></div>
           <div className="product-details">
@@ -91,7 +140,7 @@ export default function Home() {
       </section>
 
       <section className="section services-section" id="services">
-        <div className="section-heading"><div><p className="eyebrow"><span /> ما نقدمه</p><h2>حلول تبدأ بمنتج<br />وتكبر مع احتياجك</h2></div><p>نبني أدوات قابلة للاستخدام، ثم نخصصها ونطوّرها لتناسب واقع التشغيل داخل المنشأة.</p></div>
+        <div className="section-heading"><div><p className="eyebrow"><span /> طريقة خدمتنا</p><h2>من خدمة فردية<br />إلى حل متكامل</h2></div><p>نقدم مخرجات مخصصة للأفراد، ومنتجات جاهزة للأعمال، وخدمات تطوير تتوسع مع الاحتياج.</p></div>
         <div className="services-grid">{services.map((service) => <article key={service.number}><span>{service.number}</span><h3>{service.title}</h3><p>{service.text}</p><a href="#order">اعرف المزيد <Arrow /></a></article>)}</div>
       </section>
 
@@ -106,13 +155,13 @@ export default function Home() {
       </section>
 
       <section className="order-section" id="order">
-        <div><p className="eyebrow"><span /> ابدأ بخطوة واضحة</p><h2>جهّز دورة الأداء القادمة<br />بأسلوب أكثر إتقانًا.</h2></div>
-        <div className="order-card"><p>الحزمة جاهزة للرفع في متجرك الرقمي. استخدم قناة المتجر الرسمية لإتمام الطلب والتسليم والدعم.</p><a className="button light" href="#purchase">عرض تفاصيل الحزمة <Arrow /></a><small>التخصيص المؤسسي متاح كخدمة منفصلة حسب النطاق.</small></div>
+        <div><p className="eyebrow"><span /> اختر المسار المناسب</p><h2>فرص مهنية أقوى<br />وأعمال أكثر إتقانًا.</h2></div>
+        <div className="order-card"><p>حدد الخدمة أو البكج المناسب، وسيتم تأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button light" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div><small>سيتم ربط أزرار الطلب بصفحات الدفع بعد إنشاء المنتجات على منصة المتجر.</small></div>
       </section>
 
       <footer>
         <div className="brand footer-brand"><img src="/itqan-icon.svg" alt="" /><span><b>إتقان فالي</b><small>Business Solutions &amp; Development</small></span></div>
-        <p>منتجات رقمية وحلول تطوير تمنح الأعمال وضوحًا أكبر وكفاءة أعلى.</p><div><a href="#product">المنتج</a><a href="#services">الخدمات</a><a href="#faq">الأسئلة الشائعة</a></div><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small>
+        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p><div><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">البكجات</a><a href="#faq">الأسئلة الشائعة</a></div><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small>
       </footer>
     </main>
   );

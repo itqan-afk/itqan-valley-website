@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ar" dir="rtl"><body>{children}</body></html>;
+  return <html lang="ar" dir="rtl"><head><link rel="preconnect" href="https://cdn.jsdelivr.net" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dawod/thmanyah-font-web/sans.css" /></head><body>{children}</body></html>;
 }

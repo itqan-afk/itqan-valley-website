@@ -1,20 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">شعار إتقان فالي</title>
-  <desc id="desc">حرف V كبير يجسد الوادي ويتضمن مسارًا تقنيًا مترابطًا</desc>
+  <desc id="desc">حرف V هندسي كبير يجسد الوادي</desc>
   <defs>
     <linearGradient id="bg" x1="70" y1="55" x2="442" y2="460" gradientUnits="userSpaceOnUse">
       <stop stop-color="#173A57"/>
       <stop offset="1" stop-color="#07192A"/>
     </linearGradient>
-    <linearGradient id="tech" x1="196" y1="214" x2="316" y2="390" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#76DDF1"/>
-      <stop offset="1" stop-color="#2FB4D4"/>
-    </linearGradient>
   </defs>
   <rect width="512" height="512" rx="108" fill="url(#bg)"/>
   <path d="M58 76h96l102 205L358 76h96L256 446 58 76Z" fill="#FFFFFF"/>
-  <path d="M256 395v-61l-38-38v-58M256 334l49-49v-71" fill="none" stroke="#12263A" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="218" cy="226" r="17" fill="url(#tech)" stroke="#FFFFFF" stroke-width="7"/>
-  <circle cx="305" cy="202" r="17" fill="url(#tech)" stroke="#FFFFFF" stroke-width="7"/>
-  <circle cx="256" cy="395" r="17" fill="url(#tech)" stroke="#FFFFFF" stroke-width="7"/>
 </svg>

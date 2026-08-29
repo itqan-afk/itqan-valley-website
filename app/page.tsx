@@ -1,197 +1,102 @@
-const Check = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" className="check-icon">
-    <path d="m5 12 4 4L19 6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+"use client";
 
-const Arrow = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" className="arrow-icon">
-    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+import { useCallback, useEffect, useRef, useState } from "react";
 
-const WhatsApp = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" className="contact-icon">
-    <path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M9 8.4c.2-.5.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.5 1 1.4 1.8 2.4 2.3.2.1.4.2.6 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.3-.7 1.8-.5.5-1.4.8-2.3.6-1-.2-2.4-.7-4.1-2.2-1.4-1.3-2.4-2.8-2.7-3.8-.3-.9 0-1.8.4-2.4Z" fill="currentColor" />
-  </svg>
-);
-
-const Mail = () => (
-  <svg aria-hidden="true" viewBox="0 0 24 24" className="contact-icon">
-    <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
-    <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const whatsappUrl = "https://wa.me/966555365305?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85.";
-const emailUrl = "mailto:hello.Itqan@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A";
-
-const productFeatures = [
-  "لوحة أداء تنفيذية عربية وإنجليزية",
-  "سجل مؤشرات ومستهدفات وحدود وأوزان",
-  "حساب تلقائي للحالة والإنجاز والانحراف",
-  "متابعة الإجراءات والملاك والمواعيد والأدلة",
-  "قالب تقرير تنفيذي من 6 شرائح باللغتين",
-  "دليل تشغيل وترخيص ثنائي اللغة",
-];
-
-const careerProducts = [
-  { tag: "الأكثر طلبًا", title: "سيرة ذاتية ATS", text: "صياغة احترافية متوافقة مع أنظمة الفرز، بالعربية أو الإنجليزية.", price: "ابتداءً من 179 ر.س", code: "CV" },
-  { tag: "حضور مهني", title: "تحسين ملف LinkedIn", text: "عنوان وملخص وخبرات ومهارات تعكس قيمتك المهنية بوضوح.", price: "ابتداءً من 179 ر.س", code: "IN" },
-  { tag: "تقديم أقوى", title: "خطاب تقديم وظيفي", text: "خطاب مخصص يربط خبراتك بمتطلبات الوظيفة المستهدفة.", price: "ابتداءً من 119 ر.س", code: "CL" },
-  { tag: "للقيادات", title: "سيرة ذاتية تنفيذية", text: "سيرة تبرز الأثر والقيادة والإنجازات وصناعة القرار.", price: "ابتداءً من 349 ر.س", code: "EX" },
-  { tag: "مراجعة", title: "تقييم السيرة الحالية", text: "مراجعة المحتوى والهيكل والكلمات المفتاحية مع توصيات عملية.", price: "ابتداءً من 89 ر.س", code: "RV" },
-  { tag: "باقة", title: "التميز المهني", text: "سيرة عربية وإنجليزية، LinkedIn، وخطاب تقديم ضمن باقة واحدة.", price: "ابتداءً من 549 ر.س", code: "PK" },
-];
-
-const businessProducts = [
-  { tag: "منتج رقمي", title: "باقة إدارة الأداء التنفيذي", text: "لوحة مؤشرات، متابعة إجراءات، وقالب تقرير تنفيذي بالعربية والإنجليزية.", price: "249 ر.س", code: "KPI" },
-  { tag: "خدمة تخصيص", title: "لوحة مؤشرات مخصصة", text: "تصميم مؤشرات ومستهدفات ولوحة متابعة تناسب إدارة أو منشأة محددة.", price: "حسب النطاق", code: "DB" },
-  { tag: "مكتب تنفيذي", title: "نظام الاجتماعات والقرارات", text: "متابعة القرارات والملاك والمواعيد والتصعيد حتى الإغلاق.", price: "حسب النطاق", code: "EO" },
-  { tag: "العقود", title: "متابع العقود والمشتريات", text: "أداة منظمة لمتابعة المنافسات والعقود والتجديدات والتغييرات والموردين.", price: "حسب النطاق", code: "CT" },
-  { tag: "تقارير", title: "تصميم تقرير تنفيذي", text: "تحويل البيانات والمستجدات إلى عرض قيادي مختصر وواضح للقرار.", price: "حسب النطاق", code: "RP" },
-  { tag: "تشغيل", title: "توثيق الإجراءات ومسارات العمل", text: "صياغة إجراءات عملية وتحديد الأدوار ونقاط الاعتماد ومخرجات كل مرحلة.", price: "حسب النطاق", code: "SOP" },
-];
-
-const workflow = [
-  ["01", "عرّف المؤشرات", "حدد التعريف والوحدة والمالك والمستهدف وحدود التنبيه."],
-  ["02", "أدخل النتائج", "حدّث النتائج الفعلية الشهرية في الخلايا المخصصة للإدخال."],
-  ["03", "اقرأ الحالة", "راجع الحالة المحسوبة تلقائيًا والانحراف واتجاه الأداء."],
-  ["04", "عيّن الإجراء", "اربط كل استثناء بمالك وموعد ودليل إغلاق واضح."],
-  ["05", "ارفع القرار", "حوّل النتائج إلى تقرير مختصر وقرارات قابلة للاعتماد."],
-];
+const WHATSAPP = "https://wa.me/966555365305?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1.";
+const EMAIL = "mailto:hello.Itqan@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20-%20%D8%A5%D8%AA%D9%82%D8%A7%D9%86%20%D9%81%D8%A7%D9%84%D9%8A";
 
 const services = [
-  { number: "01", title: "الخدمات المهنية", text: "سير ذاتية وملفات LinkedIn وخطابات تُصاغ وفق خبرتك والفرصة المستهدفة." },
-  { number: "02", title: "المنتجات الرقمية", text: "قوالب وباقات جاهزة تساعد المهنيين والمنشآت على التنظيم والقياس والمتابعة." },
-  { number: "03", title: "حلول الأعمال المخصصة", text: "لوحات وتقارير وإجراءات ومسارات عمل تُبنى وفق واقع الإدارة أو المنشأة." },
+  { name: "أثر مهني", label: "للأفراد والقيادات", image: "/service-athar.jpg", alt: "مختص يراجع ملفًا مهنيًا باحتراف", description: "نبني السيرة وLinkedIn وخطاب التقديم كمنظومة واحدة تُظهر القيمة المهنية بوضوح وتدعم فرص الوصول والمقابلة." },
+  { name: "نبض الأداء", label: "للمنشآت والإدارات", image: "/service-nabd.jpg", alt: "لوحة أداء تنفيذية تعرض المؤشرات والنتائج", description: "لوحات قياس تربط المستهدف بالنتيجة والانحراف والإجراء، لتمنح الإدارة قراءة تنفيذية قابلة للمتابعة." },
+  { name: "غرفة القرار", label: "للفرق القيادية", image: "/service-qarar.jpg", alt: "فريق قيادي يناقش قرارًا في غرفة اجتماعات", description: "نظام للاجتماعات والقرارات والتقارير يحوّل النقاش إلى مسؤول وموعد ودليل إغلاق واضح." },
+  { name: "معمار التشغيل", label: "للتحول والحوكمة", image: "/service-memar.jpg", alt: "تصميم هندسي لمسارات التشغيل والحوكمة", description: "هندسة الإجراءات والحوكمة وجاهزية التحول في مسارات مترابطة، واضحة، قابلة للتطبيق والقياس." },
 ];
 
-const faqs = [
-  ["من تخدم إتقان فالي؟", "نخدم الباحثين عن فرص وظيفية، والموظفين الراغبين في تطوير حضورهم المهني، وأصحاب الأعمال والمنشآت التي تحتاج أدوات متابعة وتقارير وحلول تشغيل واضحة."],
-  ["هل الخدمات المهنية مخصصة لكل عميل؟", "نعم. السيرة الذاتية وLinkedIn والخطابات تُبنى وفق خبرة العميل والوظيفة المستهدفة، وليست نصوصًا عامة جاهزة."],
-  ["هل الملفات قابلة للتعديل؟", "نعم. جميع ملفات Excel وPowerPoint قابلة للتعديل الداخلي وفق شروط الترخيص."],
-  ["هل تحتاج الباقة إلى برامج خاصة؟", "تعمل باستخدام Microsoft Excel وPowerPoint، ولا تعتمد على وحدات ماكرو. يُنصح باستخدام إصدار حديث والتحقق من التوافق قبل الاستخدام الرسمي."],
-  ["هل البيانات الموجودة حقيقية؟", "لا. البيانات المرفقة تجريبية لشرح طريقة العمل، ويجب استبدالها والتحقق من التعريفات والصيغ قبل الاعتماد."],
-  ["هل يشمل السعر خدمة التخصيص؟", "لا. الباقة منتج جاهز، بينما تخصيص الهوية والمؤشرات والتقارير خدمة مستقلة تُسعّر حسب النطاق."],
-  ["هل يمكن إعادة بيع الملفات؟", "لا. الترخيص للاستخدام الداخلي لمشترٍ واحد داخل منشأة واحدة، ويمنع إعادة البيع أو الترخيص من الباطن أو التوزيع العام."],
+const facts = [["34", "ملفًا احترافيًا"], ["16", "حلًا ونموذجًا"], ["02", "العربية والإنجليزية"], ["16", "مؤشرًا متخصصًا"]];
+const workflow = [
+  ["01", "نحدّد الهدف", "نحوّل الاحتياج إلى نتيجة واضحة ونطاق عمل قابل للقياس."],
+  ["02", "نبني المعيار", "نعرّف المؤشرات والأدوار وحدود النجاح قبل بدء التنفيذ."],
+  ["03", "نفعّل المتابعة", "نربط كل مهمة بمسؤول وموعد وحالة واضحة."],
+  ["04", "نرفع القرار", "نختصر النتائج والاستثناءات في صورة تدعم القرار الإداري."],
+  ["05", "نقيس الأثر", "نراجع النتيجة ونوثّق التحسين للمرحلة التالية."],
 ];
+const navItems = ["الرئيسية", "حلولنا", "أعمالنا", "منهجيتنا", "تواصل معنا"];
 
-function ProductCard({ item, audience }: { item: { tag: string; title: string; text: string; price: string; code: string }; audience: "career" | "business" }) {
-  return (
-    <article className={`catalog-card ${audience}`}>
-      <div className="catalog-top"><span>{item.tag}</span><b>{item.code}</b></div>
-      <h3>{item.title}</h3><p>{item.text}</p>
-      <div className="catalog-bottom"><strong>{item.price}</strong><a href="#order">اطلب الخدمة <Arrow /></a></div>
-    </article>
-  );
+function ArrowIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>; }
+function MailIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>; }
+function WhatsAppIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6Z" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="M9 8.4c.2-.5.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.5 1 1.4 1.8 2.4 2.3.2.1.4.2.6 0l.8-1c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .3-.1 1.3-.7 1.8-.5.5-1.4.8-2.3.6-1-.2-2.4-.7-4.1-2.2-1.4-1.3-2.4-2.8-2.7-3.8-.3-.9 0-1.8.4-2.4Z" fill="currentColor" /></svg>; }
+
+function Brand({ compact = false }: { compact?: boolean }) {
+  return <div className={`brand-lockup${compact ? " compact" : ""}`}><img src="/itqan-icon.svg" alt="شعار إتقان فالي" /><span className="brand-copy"><b>إتقان فالي</b><strong>ITQAN VALLEY</strong><small>للتطوير وحلول الأعمال</small></span></div>;
 }
 
 export default function Home() {
-  return (
-    <main dir="rtl">
-      <nav className="nav-shell" aria-label="التنقل الرئيسي">
-        <a className="brand" href="#top" aria-label="إتقان فالي - الرئيسية">
-          <img src="/itqan-icon.svg" alt="" />
-          <span><b>إتقان فالي</b><small>حلول الأعمال والتطوير</small></span>
-        </a>
-        <div className="nav-links">
-          <a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#services">خدماتنا</a><a href="#faq">الأسئلة الشائعة</a>
-        </div>
-        <a className="nav-cta" href="#order">ابدأ طلبك</a>
-      </nav>
+  const [active, setActive] = useState(0);
+  const touchStart = useRef<number | null>(null);
+  const wheelLocked = useRef(false);
+  const goTo = useCallback((index: number) => setActive(Math.max(0, Math.min(navItems.length - 1, index))), []);
 
-      <section className="hero" id="top">
-        <div className="hero-glow" />
-        <div className="hero-copy">
-          <p className="eyebrow"><span /> تطوير مهني وحلول أعمال تحت سقف واحد</p>
-          <h1>نتقن حضورك المهني<br /><em>ونطوّر طريقة عملك.</em></h1>
-          <p className="hero-lead">خدمات للباحثين عن الوظائف والموظفين، ومنتجات وحلول لأصحاب الأعمال والمنشآت—من السيرة الذاتية إلى أنظمة الأداء والتشغيل.</p>
-          <div className="hero-actions"><a className="button primary" href="#career">خدمات الأفراد <Arrow /></a><a className="button secondary" href="#business">حلول الأعمال</a></div>
-          <div className="trust-row"><span><Check /> خدمة مخصصة</span><span><Check /> منتجات جاهزة</span><span><Check /> تنفيذ باحتراف</span></div>
-        </div>
-        <div className="hero-visual" aria-label="باقات إتقان فالي">
-          <div className="visual-backdrop" />
-          <div className="hero-packages">
-            <a className="hero-package epm" href="#product"><div className="package-code"><span>KPI</span><small>IV-EPM-001</small></div><h2>باقة إدارة الأداء التنفيذي</h2><p>لوحة مؤشرات ومتابعة إجراءات وتقرير تنفيذي.</p><b>249 ر.س</b></a>
-            <a className="hero-package career" href="#packages"><div className="package-code"><span>CV</span><small>للباحث عن عمل</small></div><h2>باقة البداية المهنية</h2><p>سيرة ATS وخطاب تقديم وجولة تعديلات.</p><b>ابتداءً من 269 ر.س</b></a>
-            <a className="hero-package professional" href="#packages"><div className="package-code"><span>PRO</span><small>الأكثر تكاملًا</small></div><h2>باقة الحضور المهني</h2><p>سيرة باللغتين وLinkedIn وخطاب مخصص.</p><b>ابتداءً من 549 ر.س</b></a>
-            <a className="hero-package business" href="#packages"><div className="package-code"><span>OPS</span><small>للمنشآت</small></div><h2>باقة الانطلاقة الإدارية</h2><p>مؤشرات وقرارات وقالب تقرير تنفيذي.</p><b>حسب النطاق</b></a>
-          </div>
-        </div>
-      </section>
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft" || event.key === "PageDown") goTo(active + 1);
+      if (event.key === "ArrowRight" || event.key === "PageUp") goTo(active - 1);
+      if (event.key === "Home") goTo(0);
+      if (event.key === "End") goTo(navItems.length - 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [active, goTo]);
 
-      <section className="proof-strip" aria-label="الفئات المستهدفة"><p>للباحثين عن عمل</p><span>•</span><p>للموظفين والمهنيين</p><span>•</span><p>لأصحاب الأعمال</p><span>•</span><p>للمنشآت والإدارات</p></section>
+  const onWheel = (event: React.WheelEvent) => {
+    if (wheelLocked.current || Math.abs(event.deltaY) < 18) return;
+    wheelLocked.current = true;
+    goTo(active + (event.deltaY > 0 ? 1 : -1));
+    window.setTimeout(() => { wheelLocked.current = false; }, 650);
+  };
 
-      <section className="section catalog-section career-catalog" id="career">
-        <div className="section-heading"><div><p className="eyebrow dark"><span /> للأفراد والمهنيين</p><h2>خدمات تبني حضورك<br />وتقوّي فرصك المهنية</h2></div><p>نصيغ أدواتك المهنية بما يعكس خبرتك الحقيقية ويخاطب الوظيفة أو المرحلة التي تستهدفها.</p></div>
-        <div className="catalog-grid">{careerProducts.map((item) => <ProductCard key={item.title} item={item} audience="career" />)}</div>
-      </section>
+  return <main className="site-shell" dir="rtl" onWheel={onWheel}>
+    <header className="site-header">
+      <button className="brand-button" onClick={() => goTo(0)} aria-label="العودة إلى الرئيسية"><Brand compact /></button>
+      <nav aria-label="التنقل الرئيسي">{navItems.map((item, index) => <button key={item} className={active === index ? "active" : ""} onClick={() => goTo(index)}><span>{String(index + 1).padStart(2, "0")}</span>{item}</button>)}</nav>
+      <button className="header-cta" onClick={() => goTo(4)}>اطلب عرض سعر</button>
+    </header>
 
-      <section className="section catalog-section business-catalog" id="business">
-        <div className="section-heading"><div><p className="eyebrow"><span /> لأصحاب الأعمال والمنشآت</p><h2>أدوات وحلول تجعل<br />التشغيل أكثر وضوحًا</h2></div><p>منتجات جاهزة وخدمات تخصيص تربط البيانات بالمسؤولية والإجراء والقرار.</p></div>
-        <div className="catalog-grid">{businessProducts.map((item) => <ProductCard key={item.title} item={item} audience="business" />)}</div>
-      </section>
+    <div className="slides-window" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }} onTouchEnd={(event) => {
+      if (touchStart.current === null) return;
+      const distance = touchStart.current - event.changedTouches[0].clientX;
+      if (Math.abs(distance) > 45) goTo(active + (distance > 0 ? 1 : -1));
+      touchStart.current = null;
+    }}>
+      <div className="slides-track" style={{ transform: `translate3d(-${active * 100}%, 0, 0)` }}>
+        <section className="slide hero-slide" aria-hidden={active !== 0}>
+          <div className="hero-orbit" aria-hidden="true"><span /><span /><span /></div>
+          <div className="hero-content"><p className="kicker"><span /> قيمة تُرى في العمل</p><h1>نحوّل الخبرة<br />إلى <em>أثرٍ واضح.</em></h1><p className="hero-text">نبني حضورًا مهنيًا أقوى، ونصمم للمنشآت أنظمة أداء وتشغيل تجعل المتابعة والقرار أكثر وضوحًا.</p><div className="hero-actions"><button className="primary-action" onClick={() => goTo(1)}>استكشف حلولنا <ArrowIcon /></button><button className="ghost-action" onClick={() => goTo(4)}>تحدّث معنا</button></div></div>
+          <div className="hero-brand" aria-label="هوية إتقان فالي"><Brand /></div><div className="hero-index"><b>01</b><span>05</span></div>
+        </section>
 
-      <section className="section packages-section" id="packages">
-        <div className="section-heading centered"><p className="eyebrow dark"><span /> قيمة أكبر في طلب واحد</p><h2>باقات تناسب مرحلتك</h2><p>ابدأ بالخدمة التي تحتاجها الآن، أو اختر باقة تجمع المخرجات الأساسية بسعر أوضح.</p></div>
-        <div className="packages-grid">
-          <article><small>للباحث عن عمل</small><h3>باقة البداية المهنية</h3><ul><li><Check />سيرة ATS بلغة واحدة</li><li><Check />خطاب تقديم وظيفي</li><li><Check />جولة تعديلات واحدة</li></ul><strong>ابتداءً من 269 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
-          <article className="featured"><span>الأكثر تكاملًا</span><small>للموظف والمهني</small><h3>باقة الحضور المهني</h3><ul><li><Check />سيرة عربية وإنجليزية</li><li><Check />تحسين LinkedIn</li><li><Check />خطاب تقديم مخصص</li></ul><strong>ابتداءً من 549 ر.س</strong><a href="#order">اختر الباقة <Arrow /></a></article>
-          <article><small>للمنشأة والإدارة</small><h3>باقة الانطلاقة الإدارية</h3><ul><li><Check />لوحة مؤشرات أساسية</li><li><Check />متابع اجتماعات وقرارات</li><li><Check />قالب تقرير تنفيذي</li></ul><strong>يحدد حسب النطاق</strong><a href="#order">اطلب عرضًا <Arrow /></a></article>
-        </div>
-      </section>
+        <section className="slide services-slide" aria-hidden={active !== 1}>
+          <div className="slide-heading"><p className="framed-label"><span /> حلولنا <span /></p><h2>أربعة مسارات، أثر واحد</h2><p>حلول صيغت لتخدم الإنسان والعمل من أول ظهور مهني إلى نضج التشغيل.</p></div>
+          <div className="services-grid">{services.map((service, index) => <article className="service-card" key={service.name}><div className="service-media"><img src={service.image} alt={service.alt} /><span>0{index + 1}</span></div><div className="service-copy"><small>{service.label}</small><h3>{service.name}</h3><p>{service.description}</p></div></article>)}</div>
+        </section>
 
-      <section className="section product-section" id="product">
-        <div className="section-heading"><div><p className="eyebrow dark"><span /> منتج مميز للأعمال</p><h2>باقة إدارة الأداء التنفيذي</h2></div><p>نقطة بداية منظمة تجمع المؤشرات والنتائج والإجراءات والتقرير التنفيذي في دورة عمل واحدة.</p></div>
-        <div className="product-grid">
-          <div className="product-gallery"><div className="dashboard-shell"><div className="dashboard-title">لوحة الأداء التنفيذية | إتقان فالي</div><img src="/dashboard-preview.png" alt="معاينة لوحة الأداء التنفيذية" /></div><div className="file-badges"><span>Excel</span><span>PowerPoint</span><span>عربي</span><span>English</span></div></div>
-          <div className="product-details">
-            <p className="sku">IV-EPM-001</p><h3>متابعة واضحة بدل الملفات المتفرقة</h3><p>عرّف مؤشراتك، أدخل النتائج، اكتشف الاستثناءات، تابع الإجراء، وارفع القرار باستخدام ملفات مهنية جاهزة للتخصيص.</p>
-            <ul>{productFeatures.map((item) => <li key={item}><Check />{item}</li>)}</ul>
-            <div className="price-box" id="purchase"><div><small>سعر الإطلاق المقترح</small><strong>249 <span>ر.س</span></strong><del>299 ر.س</del></div><a className="button primary" href="#order">اطلبها عبر المتجر <Arrow /></a></div>
-            <p className="license-note">ترخيص استخدام داخلي لمنشأة واحدة • بدون ماكرو • بيانات تجريبية قابلة للاستبدال</p>
-          </div>
-        </div>
-      </section>
+        <section className="slide proof-slide" aria-hidden={active !== 2}>
+          <div className="proof-copy"><p className="framed-label light"><span /> أعمالنا بالأرقام <span /></p><h2>خبرة موثّقة،<br /><em>لا عبارات عامة.</em></h2><p>أرقام مستندة إلى نماذج وحلول تنفيذية بنيناها فعليًا، وتغطي التطوير المهني وقياس الأداء والجاهزية والتشغيل.</p><div className="facts-grid">{facts.map(([value, label]) => <article key={`${value}-${label}`}><strong>{value}</strong><span>{label}</span></article>)}</div></div>
+          <div className="proof-visual"><div className="dashboard-frame"><div className="frame-top"><span /><span /><span /><b>لوحة أداء تنفيذية</b></div><img src="/dashboard-preview.png" alt="نموذج فعلي من لوحة أداء تنفيذية" /></div><div className="proof-badge"><b>20</b><span>معيار جاهزية<br />ضمن 6 محاور</span></div></div>
+        </section>
 
-      <section className="section workflow-section" id="workflow">
-        <div className="section-heading centered"><p className="eyebrow dark"><span /> دورة عمل شهرية</p><h2>خمس خطوات من البيانات إلى القرار</h2><p>مسار بسيط يساعد الفريق على الحفاظ على الانضباط والوضوح من دون تعقيد تقني.</p></div>
-        <div className="workflow-grid">{workflow.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-      </section>
+        <section className="slide workflow-slide" aria-hidden={active !== 3}>
+          <div className="slide-heading"><p className="framed-label"><span /> دورة العمل التنفيذية <span /></p><h2>من الاحتياج إلى أثرٍ قابل للقياس</h2><p>منهج واضح يحافظ على سرعة التنفيذ وجودة القرار في كل مرحلة.</p></div>
+          <div className="workflow-grid">{workflow.map(([number, title, description], index) => <article key={number}><span className="step-number">{number}</span><div className="step-dot" />{index < workflow.length - 1 && <i aria-hidden="true" />}<h3>{title}</h3><p>{description}</p></article>)}</div>
+        </section>
 
-      <section className="section services-section" id="services">
-        <div className="section-heading"><div><p className="eyebrow"><span /> طريقة خدمتنا</p><h2>من خدمة فردية<br />إلى حل متكامل</h2></div><p>نقدم مخرجات مخصصة للأفراد، ومنتجات جاهزة للأعمال، وخدمات تطوير تتوسع مع الاحتياج.</p></div>
-        <div className="services-grid">{services.map((service) => <article key={service.number}><span>{service.number}</span><h3>{service.title}</h3><p>{service.text}</p><a href="#order">اعرف المزيد <Arrow /></a></article>)}</div>
-      </section>
+        <section className="slide contact-slide" aria-hidden={active !== 4}>
+          <div className="contact-panel"><p className="framed-label light"><span /> الخطوة التالية <span /></p><h2>لديك تحدٍ؟<br /><em>لنحوّله إلى حل.</em></h2><p>أرسل احتياجك بإيجاز، وسنقترح المسار الأنسب ونحدد نطاق العمل والمخرجات بوضوح.</p><div className="contact-actions"><a className="whatsapp-action" href={WHATSAPP} target="_blank" rel="noreferrer"><WhatsAppIcon /> تواصل عبر واتساب</a><a className="mail-action" href={EMAIL}><MailIcon /> أرسل بريدًا إلكترونيًا</a></div></div>
+          <aside className="contact-summary"><Brand /><p>هوية سعودية تصنع حضورًا مهنيًا واضحًا، وحلول أعمال تُفهم وتُطبّق وتُقاس.</p><div className="summary-points"><span>وضوح النطاق</span><span>جودة المخرجات</span><span>أثر قابل للقياس</span></div></aside>
+          <footer><span>© 2026 إتقان فالي — جميع الحقوق محفوظة</span><b>شهادة العمل الحر: FL-291569463</b></footer>
+        </section>
+      </div>
+    </div>
 
-      <section className="section comparison-section">
-        <div className="comparison-copy"><p className="eyebrow dark"><span /> القيمة العملية</p><h2>ليست لوحة أرقام فقط</h2><p>الباقة تربط القياس بالمسؤولية، وتمنح الإدارة صورة مختصرة يمكن أن تتحول مباشرة إلى إجراء وقرار.</p><div className="metric"><strong>4</strong><span>طبقات مترابطة<br />مؤشر • نتيجة • إجراء • قرار</span></div></div>
-        <div className="comparison-cards"><article className="muted-card"><small>قبل</small><h3>ملفات متفرقة</h3><p>تعريفات مختلفة، متابعة يدوية، ومسؤوليات غير واضحة.</p></article><article className="accent-card"><small>بعد</small><h3>دورة إدارية واحدة</h3><p>بيانات موحدة، حالة واضحة، وإجراء يمكن متابعته حتى الإغلاق.</p></article></div>
-      </section>
-
-      <section className="section faq-section" id="faq">
-        <div className="section-heading centered"><p className="eyebrow dark"><span /> قبل الشراء</p><h2>أسئلة شائعة</h2></div>
-        <div className="faq-list">{faqs.map(([q,a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div>
-      </section>
-
-      <section className="order-section" id="order">
-        <div><p className="eyebrow"><span /> اختر المسار المناسب</p><h2>فرص مهنية أقوى<br />وأعمال أكثر إتقانًا.</h2></div>
-        <div className="order-card"><p>حدد الخدمة أو الباقة المناسبة، وتواصل معنا لتأكيد نطاق العمل والمتطلبات ومدة التسليم قبل البدء.</p><div className="order-links"><a className="button whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsApp /> تواصل عبر واتساب</a><a className="button secondary" href={emailUrl}><Mail /> راسلنا بالبريد</a></div><small>نرد على استفسارات الأفراد وأصحاب الأعمال ونساعدك في اختيار الخدمة المناسبة.</small></div>
-      </section>
-
-      <footer>
-        <div className="brand footer-brand"><img src="/itqan-icon.svg" alt="" /><span><b>إتقان فالي</b><small>Business Solutions &amp; Development</small></span></div>
-        <p>خدمات تطوير مهني للأفراد، ومنتجات وحلول تنظيم وتشغيل لأصحاب الأعمال والمنشآت.</p>
-        <div className="footer-links"><a href="#career">للأفراد</a><a href="#business">للأعمال</a><a href="#packages">الباقات</a><a href="#faq">الأسئلة الشائعة</a></div>
-        <div className="footer-contact" aria-label="بيانات التواصل">
-          <strong>تواصل معنا</strong>
-          <a href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsApp /><span dir="ltr">+966 55 536 5305</span></a>
-          <a href={emailUrl}><Mail /><span dir="ltr">hello.Itqan@gmail.com</span></a>
-        </div>
-        <div className="footer-legal"><span>رقم شهادة العمل الحر: <b dir="ltr">FL-291569463</b></span><small>© 2026 إتقان فالي. جميع الحقوق محفوظة.</small></div>
-      </footer>
-    </main>
-  );
+    <div className="slide-controls" aria-label="التحكم في الشرائح"><button onClick={() => goTo(active - 1)} disabled={active === 0} aria-label="الشريحة السابقة"><ArrowIcon /></button><div>{navItems.map((item, index) => <button key={item} className={active === index ? "active" : ""} onClick={() => goTo(index)} aria-label={`انتقل إلى ${item}`} />)}</div><button onClick={() => goTo(active + 1)} disabled={active === navItems.length - 1} aria-label="الشريحة التالية"><ArrowIcon /></button></div>
+  </main>;
 }

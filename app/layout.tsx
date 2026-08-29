@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "إتقان فالي | حلول الأعمال والتطوير",
-  description: "خدمات تطوير مهني للباحثين عن عمل والموظفين، ومنتجات وحلول أداء وتشغيل لأصحاب الأعمال والمنشآت.",
-  openGraph: { title: "إتقان فالي | التطوير المهني وحلول الأعمال", description: "نتقن حضورك المهني ونطوّر طريقة عملك.", images: [{ url: "/og.png", width: 1200, height: 630, alt: "إتقان فالي - التطوير المهني وحلول الأعمال" }], locale: "ar_SA", type: "website" },
-  twitter: { card: "summary_large_image", title: "إتقان فالي", description: "التطوير المهني وحلول الأعمال", images: ["/og.png"] },
+  title: "إتقان فالي | للتطوير وحلول الأعمال",
+  description: "نحوّل الخبرة إلى أثر واضح عبر التطوير المهني، وقياس الأداء، وصناعة القرار، وهندسة التشغيل.",
+  openGraph: { title: "إتقان فالي | للتطوير وحلول الأعمال", description: "نحوّل الخبرة إلى أثر واضح.", images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "إتقان فالي - للتطوير وحلول الأعمال" }], locale: "ar_SA", type: "website" },
+  twitter: { card: "summary_large_image", title: "إتقان فالي", description: "للتطوير وحلول الأعمال", images: ["/og-v2.png"] },
   icons: { icon: "/itqan-icon.svg", shortcut: "/itqan-icon.svg" },
 };
 

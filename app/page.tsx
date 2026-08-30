@@ -58,9 +58,11 @@ function Brand({ compact = false }: { compact?: boolean }) {
 
 export default function Home() {
   const [active, setActive] = useState(0);
+  const [catalogAudience, setCatalogAudience] = useState(0);
   const touchStart = useRef<number | null>(null);
   const wheelLocked = useRef(false);
   const goTo = useCallback((index: number) => setActive(Math.max(0, Math.min(navItems.length - 1, index))), []);
+  const activeCatalog = serviceCatalog[catalogAudience];
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -106,12 +108,15 @@ export default function Home() {
         </section>
 
         <section className="slide catalog-slide" aria-hidden={active !== 2}>
-          <div className="slide-heading"><p className="framed-label light"><span /> خدماتنا <span /></p><h2>للأفراد وللأعمال</h2><p>اختر نقطة البداية المناسبة، ونبني نطاق الخدمة وفق هدفك.</p></div>
-          <div className="audience-grid">
-            {serviceCatalog.map((group, groupIndex) => <article className={`audience-panel ${groupIndex === 1 ? "business" : "individual"}`} key={group.audience}>
-              <header><span>0{groupIndex + 1}</span><div><h3>{group.audience}</h3><p>{group.lead}</p></div></header>
-              <div className="audience-list">{group.items.map(([title, description], itemIndex) => <div key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><span><strong>{title}</strong><small>{description}</small></span></div>)}</div>
-            </article>)}
+          <div className="catalog-heading">
+            <div><p className="framed-label light"><span /> خدماتنا <span /></p><h2>خدمات مصممة<br />حول هدفك</h2></div>
+            <div className="catalog-switch" role="tablist" aria-label="اختر فئة الخدمات">
+              {serviceCatalog.map((group, index) => <button key={group.audience} role="tab" aria-selected={catalogAudience === index} className={catalogAudience === index ? "active" : ""} onClick={() => setCatalogAudience(index)}><span>0{index + 1}</span>{group.audience}</button>)}
+            </div>
+          </div>
+          <div className={`catalog-showcase ${catalogAudience === 1 ? "business" : "individual"}`}>
+            <aside className="catalog-aside"><span>0{catalogAudience + 1}</span><h3>{activeCatalog.audience}</h3><p>{activeCatalog.lead}</p><button onClick={() => goTo(5)}>ابدأ بطلبك <ArrowIcon /></button></aside>
+            <div className="service-options">{activeCatalog.items.map(([title, description], itemIndex) => <article className={activeCatalog.items.length === 5 && itemIndex > 2 ? "half" : ""} key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><h3>{title}</h3><p>{description}</p></article>)}</div>
           </div>
         </section>
 

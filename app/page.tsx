@@ -7,8 +7,8 @@ const EMAIL = "mailto:hello.Itqan@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%B9%
 
 const services = [
   { name: "أثر مهني", label: "للأفراد والقيادات", image: "/service-athar-v2.jpg", alt: "ملف مهني أنيق يعبّر عن الحضور المهني", description: "نبني السيرة وLinkedIn وخطاب التقديم كمنظومة واحدة تُظهر القيمة المهنية بوضوح وتدعم فرص الوصول والمقابلة." },
-  { name: "نبض الأداء", label: "للمنشآت والإدارات", image: "/service-nabd-v2.jpg", alt: "مقياس دقيق يعبّر عن متابعة الأداء", description: "لوحات قياس تربط المستهدف بالنتيجة والانحراف والإجراء، لتمنح الإدارة قراءة تنفيذية قابلة للمتابعة." },
-  { name: "غرفة القرار", label: "للفرق القيادية", image: "/service-qarar-v2.jpg", alt: "ملف قرار تتقاطع عنده مسارات مضيئة", description: "نظام للاجتماعات والقرارات والتقارير يحوّل النقاش إلى مسؤول وموعد ودليل إغلاق واضح." },
+  { name: "بوصلة الأداء", label: "للمنشآت والإدارات", image: "/service-nabd-v2.jpg", alt: "مقياس دقيق يعبّر عن بوصلة الأداء", description: "لوحات قياس تربط المستهدف بالنتيجة والانحراف والإجراء، لتمنح الإدارة قراءة تنفيذية قابلة للمتابعة." },
+  { name: "مسار القرار", label: "للفرق القيادية", image: "/service-qarar-v2.jpg", alt: "ملف قرار تتقاطع عنده مسارات مضيئة", description: "نظام للاجتماعات والقرارات والتقارير يحوّل النقاش إلى مسؤول وموعد ودليل إغلاق واضح." },
   { name: "هندسة الأعمال", label: "للتحول والحوكمة", image: "/service-handasa-v2.jpg", alt: "وحدات مترابطة تعبّر عن هندسة الأعمال", description: "نصمم الإجراءات والحوكمة وجاهزية التحول في مسارات مترابطة، واضحة، قابلة للتطبيق والقياس." },
 ];
 
@@ -84,7 +84,7 @@ export default function Home() {
     <header className="site-header">
       <button className="brand-button" onClick={() => goTo(0)} aria-label="العودة إلى الرئيسية"><Brand compact /></button>
       <nav aria-label="التنقل الرئيسي">{navItems.map((item, index) => <button key={item} className={active === index ? "active" : ""} onClick={() => goTo(index)}><span>{String(index + 1).padStart(2, "0")}</span>{item}</button>)}</nav>
-      <button className="header-cta" onClick={() => goTo(5)}>اطلب عرض سعر</button>
+      <button className="header-cta" onClick={() => goTo(5)}>ابدأ بطلبك</button>
     </header>
 
     <div className="slides-window" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }} onTouchEnd={(event) => {

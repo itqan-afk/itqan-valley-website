@@ -261,7 +261,7 @@ export default function Home() {
       if (Math.abs(distance) > 45) goTo(active + (distance > 0 ? 1 : -1));
       touchStart.current = null;
     }}>
-      <div className="slides-track" style={{ transform: `translate3d(-${active * 100}%, 0, 0)` }}>
+      <div className="slides-track" style={{ transform: `translate3d(${(direction === "rtl" ? 1 : -1) * active * 100}%, 0, 0)` }}>
         <section className="slide hero-slide" aria-hidden={active !== 0}>
           <div className="hero-orbit" aria-hidden="true"><span /><span /><span /></div>
           <div className="hero-content"><p className="kicker"><span /> {t.hero.kicker}</p><h1>{t.hero.title}<br /><em>{t.hero.accent}</em></h1><p className="hero-text">{t.hero.text}</p><div className="hero-actions"><button className="primary-action" onClick={() => goTo(1)}>{t.hero.explore} <ArrowIcon /></button><button className="ghost-action" onClick={() => goTo(5)}>{t.hero.talk}</button></div></div>

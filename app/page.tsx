@@ -222,7 +222,7 @@ export default function Home() {
   const direction = language === "ar" ? "rtl" : "ltr";
   const activeCatalog = t.catalog.groups[catalogAudience];
   const whatsapp = `https://wa.me/966555365305?text=${encodeURIComponent(t.contact.whatsappMessage)}`;
-  const email = `mailto:hello.Itqan@gmail.com?subject=${encodeURIComponent(t.contact.emailSubject)}`;
+  const email = `mailto:itqan@itqanvalley.com?subject=${encodeURIComponent(t.contact.emailSubject)}`;
   const goTo = useCallback((index: number) => setActive(Math.max(0, Math.min(TOTAL_SLIDES - 1, index))), []);
 
   useEffect(() => {

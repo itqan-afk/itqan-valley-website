@@ -33,8 +33,8 @@ const content = {
     },
     catalog: {
       label: "خدماتنا",
-      titleTop: "خدمات مصممة",
-      titleBottom: "حول هدفك",
+      titleTop: "خدمات مصممة لتحقيق هدفك",
+      titleBottom: "",
       choose: "اختر فئة الخدمات",
       guarantee: "ضمان الجودة — نلتزم بالمخرجات المتفق عليها ونعدّل حتى رضاك.",
       trust: ["مخرجات بالعربية والإنجليزية", "نطاق ومخرجات ومدة واضحة", "موثّقون في منصة العمل الحر"],
@@ -290,7 +290,7 @@ export default function Home() {
 
         <section className="slide catalog-slide" aria-hidden={active !== 2}>
           <div className="catalog-heading">
-            <div><p className="framed-label light"><span /> {t.catalog.label} <span /></p><h2>{t.catalog.titleTop}<br />{t.catalog.titleBottom}</h2></div>
+            <div><p className="framed-label light"><span /> {t.catalog.label} <span /></p><h2>{t.catalog.titleTop} {t.catalog.titleBottom}</h2></div>
             <div className="catalog-switch" role="tablist" aria-label={t.catalog.choose}>
               {t.catalog.groups.map((group, index) => <button key={group.audience} role="tab" aria-selected={catalogAudience === index} className={catalogAudience === index ? "active" : ""} onClick={() => setCatalogAudience(index)}><span>0{index + 1}</span>{group.audience}</button>)}
             </div>

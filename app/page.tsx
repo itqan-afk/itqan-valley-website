@@ -38,6 +38,8 @@ const content = {
       choose: "اختر فئة الخدمات",
       guarantee: "ضمان الجودة — نلتزم بالمخرجات المتفق عليها ونعدّل حتى رضاك.",
       trust: ["مخرجات بالعربية والإنجليزية", "نطاق ومخرجات ومدة واضحة", "موثّقون في منصة العمل الحر"],
+      popular: "الأكثر طلباً",
+      order: "اطلب عبر واتساب",
       groups: [
         {
           audience: "للأفراد",
@@ -137,6 +139,8 @@ const content = {
       choose: "Choose a service category",
       guarantee: "Quality guarantee — we deliver what's agreed and revise until you're satisfied.",
       trust: ["Arabic & English deliverables", "Clear scope, deliverables & timeline", "Documented on the Freelance platform"],
+      popular: "Most requested",
+      order: "Order via WhatsApp",
       groups: [
         {
           audience: "Individuals",
@@ -246,6 +250,13 @@ export default function Home() {
   }, [active, goTo]);
 
   const onWheel = (event: React.WheelEvent) => {
+    const scroller = (event.target as HTMLElement).closest?.(".catalog-scroll") as HTMLElement | null;
+    if (scroller) {
+      const atEnd = event.deltaY > 0
+        ? scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1
+        : scroller.scrollTop <= 0;
+      if (!atEnd) return;
+    }
     if (wheelLocked.current || Math.abs(event.deltaY) < 18) return;
     wheelLocked.current = true;
     goTo(active + (event.deltaY > 0 ? 1 : -1));
@@ -284,9 +295,12 @@ export default function Home() {
               {t.catalog.groups.map((group, index) => <button key={group.audience} role="tab" aria-selected={catalogAudience === index} className={catalogAudience === index ? "active" : ""} onClick={() => setCatalogAudience(index)}><span>0{index + 1}</span>{group.audience}</button>)}
             </div>
           </div>
-          <div className={`catalog-showcase ${catalogAudience === 1 ? "business" : "individual"}`}>
-            <aside className="catalog-aside"><span>0{catalogAudience + 1}</span><h3>{activeCatalog.audience}</h3><p>{activeCatalog.lead}</p><button onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button><div className="catalog-trust"><p className="guarantee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</p><div className="trust-chips">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div></aside>
-            <div className="service-options">{activeCatalog.items.map(([title, description, price], itemIndex) => <article className={activeCatalog.items.length === 5 && itemIndex > 2 ? "half" : ""} key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><h3>{title}</h3><p>{description}</p><span className="service-price">{price}</span></article>)}</div>
+          <div className="cat-lead"><p>{activeCatalog.lead}</p><button className="cat-cta" onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button></div>
+          <div className="catalog-scroll">
+            {catalogAudience === 0
+              ? <div className="price-cards">{activeCatalog.items.map(([title, description, price], i) => <article className={i === 0 ? "pc pc-feat" : "pc"} key={title}>{i === 0 ? <span className="pc-best">{t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
+              : <div className="price-list">{activeCatalog.items.map(([title, description, price]) => <div className="pl-row" key={title}><div><div className="pl-t">{title}</div><div className="pl-d">{description}</div></div><span className={/[0-9]/.test(price) ? "pl-amt" : "pl-amt pl-scope"}>{price}</span></div>)}</div>}
+            <div className="catalog-trust"><p className="guarantee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</p><div className="trust-chips">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div>
           </div>
         </section>
 

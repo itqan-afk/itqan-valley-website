@@ -55,3 +55,5 @@
 .price-list .pl-amt{font-size:18px;font-weight:800;color:#59d7ea;white-space:nowrap;font-variant-numeric:tabular-nums}
 .price-list .pl-scope{font-size:15px}
 @media(max-width:700px){.cat-lead{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:10px}.cat-lead .cat-cta{justify-content:center}.price-cards{grid-template-columns:1fr}.price-list .pl-row{grid-template-columns:1fr;gap:4px}}
+.price-list .pl-rec{display:inline-block;margin-inline-start:8px;background:#59d7ea;color:#062033;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:99px;vertical-align:middle}
+.price-list .pl-row.rec{background:#0f3556}

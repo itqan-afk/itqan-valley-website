@@ -45,19 +45,19 @@ const content = {
           audience: "للأفراد",
           lead: "حضور مهني يعبّر عن خبرتك ويقوّي فرصك.",
           items: [
-            ["سيرة تبرزك", "سيرة احترافية متوافقة مع أنظمة الفرز ATS.", "من 179 ر.س"],
-            ["حضور يعرّف بك", "إعادة بناء LinkedIn ليعرض قيمتك المهنية بوضوح.", "من 179 ر.س"],
-            ["خطاب يوصلك", "خطاب يربط خبرتك مباشرة بالفرصة المستهدفة.", "من 119 ر.س"],
-            ["ملف يليق بالقيادة", "سيرة تنفيذية تبرز الأثر والقرارات والإنجازات.", "من 349 ر.س"],
-            ["مراجعة تضبط سيرتك", "تشخيص دقيق للسيرة مع توصيات قابلة للتطبيق.", "من 89 ر.س"],
-            ["انطلاقة متكاملة", "سيرة باللغتين وLinkedIn وخطاب تقديم متكامل.", "من 549 ر.س"],
+            ["سيرة ذاتية احترافية (ATS)", "سيرة احترافية متوافقة مع أنظمة الفرز ATS.", "من 179 ر.س"],
+            ["تحسين ملف LinkedIn", "إعادة بناء LinkedIn ليعرض قيمتك المهنية بوضوح.", "من 179 ر.س"],
+            ["خطاب تقديم وظيفي", "خطاب يربط خبرتك مباشرة بالفرصة المستهدفة.", "من 119 ر.س"],
+            ["سيرة ذاتية تنفيذية", "سيرة تنفيذية تبرز الأثر والقرارات والإنجازات.", "من 349 ر.س"],
+            ["تقييم ومراجعة السيرة", "تشخيص دقيق للسيرة مع توصيات قابلة للتطبيق.", "من 89 ر.س"],
+            ["باقة التميز المهني", "سيرة باللغتين وLinkedIn وخطاب تقديم متكامل.", "من 549 ر.س"],
           ],
         },
         {
           audience: "للأعمال",
           lead: "أنظمة واضحة تربط القياس بالمسؤولية والقرار.",
           items: [
-            ["باقة إدارة الأداء التنفيذي", "لوحة مؤشرات (KPIs) ومتابعة إجراءات وقالب تقرير تنفيذي جاهز.", "249 ر.س"],
+            ["باقة إدارة الأداء التنفيذي", "لوحة مؤشرات (KPIs) ومتابعة إجراءات وقالب تقرير تنفيذي جاهز.", "249 ر.س", "موصى به"],
             ["لوحة مؤشرات مخصصة", "تصميم مؤشرات ومستهدفات ولوحة متابعة تناسب إدارتك أو منشأتك.", "حسب النطاق"],
             ["نظام الاجتماعات والقرارات", "متابعة القرارات والمسؤولين والمواعيد والتصعيد حتى الإغلاق.", "حسب النطاق"],
             ["تصميم تقرير تنفيذي", "تحويل بياناتك إلى عرض قيادي مختصر وواضح يدعم القرار.", "حسب النطاق"],
@@ -146,19 +146,19 @@ const content = {
           audience: "Individuals",
           lead: "A professional presence that represents your experience and strengthens your opportunities.",
           items: [
-            ["Standout CV", "Professional writing optimized for ATS screening.", "From SAR 179"],
-            ["LinkedIn Presence", "A rebuilt profile that communicates your professional value.", "From SAR 179"],
-            ["Opportunity Letter", "A tailored letter connecting your experience to the role.", "From SAR 119"],
-            ["Leadership Profile", "An executive CV focused on impact, decisions, and results.", "From SAR 349"],
+            ["Professional CV (ATS)", "Professional writing optimized for ATS screening.", "From SAR 179"],
+            ["LinkedIn Profile Optimization", "A rebuilt profile that communicates your professional value.", "From SAR 179"],
+            ["Cover Letter", "A tailored letter connecting your experience to the role.", "From SAR 119"],
+            ["Executive CV", "An executive CV focused on impact, decisions, and results.", "From SAR 349"],
             ["CV Review", "A detailed diagnostic with practical recommendations.", "From SAR 89"],
-            ["Complete Launch", "Bilingual CV, LinkedIn profile, and cover letter.", "From SAR 549"],
+            ["Career Excellence Bundle", "Bilingual CV, LinkedIn profile, and cover letter.", "From SAR 549"],
           ],
         },
         {
           audience: "Businesses",
           lead: "Clear systems that connect measurement, accountability, and decisions.",
           items: [
-            ["Executive Performance Suite", "A KPI dashboard, action tracking, and a ready executive report template.", "SAR 249"],
+            ["Executive Performance Suite", "A KPI dashboard, action tracking, and a ready executive report template.", "SAR 249", "Recommended"],
             ["Custom KPI Dashboard", "Indicators, targets, and a tracking dashboard tailored to your unit.", "Scope-based"],
             ["Meetings & Decisions System", "Track decisions, owners, deadlines, and escalation to closure.", "Scope-based"],
             ["Executive Report Design", "Turn your data into a concise, decision-ready leadership brief.", "Scope-based"],
@@ -299,7 +299,7 @@ export default function Home() {
           <div className="catalog-scroll">
             {catalogAudience === 0
               ? <div className="price-cards">{activeCatalog.items.map(([title, description, price], i) => <article className={i === 0 ? "pc pc-feat" : "pc"} key={title}>{i === 0 ? <span className="pc-best">{t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
-              : <div className="price-list">{activeCatalog.items.map(([title, description, price]) => <div className="pl-row" key={title}><div><div className="pl-t">{title}</div><div className="pl-d">{description}</div></div><span className={/[0-9]/.test(price) ? "pl-amt" : "pl-amt pl-scope"}>{price}</span></div>)}</div>}
+              : <div className="price-list">{activeCatalog.items.map(([title, description, price, rec]) => <div className={rec ? "pl-row rec" : "pl-row"} key={title}><div><div className="pl-t">{title}{rec ? <span className="pl-rec">{rec}</span> : null}</div><div className="pl-d">{description}</div></div><span className={/[0-9]/.test(price) ? "pl-amt" : "pl-amt pl-scope"}>{price}</span></div>)}</div>}
             <div className="catalog-trust"><p className="guarantee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</p><div className="trust-chips">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div>
           </div>
         </section>

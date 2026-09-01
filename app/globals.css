@@ -57,3 +57,19 @@
 @media(max-width:700px){.cat-lead{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:10px}.cat-lead .cat-cta{justify-content:center}.price-cards{grid-template-columns:1fr}.price-list .pl-row{grid-template-columns:1fr;gap:4px}}
 .price-list .pl-rec{display:inline-block;margin-inline-start:8px;background:#59d7ea;color:#062033;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:99px;vertical-align:middle}
 .price-list .pl-row.rec{background:#0f3556}
+.catalog-scroll{scrollbar-width:none}
+.catalog-scroll::-webkit-scrollbar{display:none}
+@media(min-width:701px){
+.catalog-slide .price-cards{gap:10px}
+.catalog-slide .pc{padding:14px 15px;gap:5px}
+.catalog-slide .pc h3{font-size:clamp(15px,1.15vw,17px)}
+.catalog-slide .pc>p{font-size:12px;line-height:1.42}
+.catalog-slide .pc-foot{padding-top:9px}
+.catalog-slide .pc-price{font-size:18px}
+.catalog-slide .cat-lead{margin-bottom:9px}
+.catalog-slide .catalog-heading{margin-bottom:10px}
+.catalog-slide .catalog-trust{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:11px;padding-top:11px;border-top:1px solid #ffffff14;width:100%}
+.catalog-slide .catalog-trust .guarantee{margin:0;font-size:12.5px}
+.catalog-slide .catalog-trust .trust-chips{gap:6px}
+.catalog-slide .catalog-trust .trust-chips span{font-size:10.5px;padding:3px 9px}
+}

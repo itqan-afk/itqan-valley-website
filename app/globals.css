@@ -28,3 +28,4 @@
 .site-shell[dir=rtl] .slide-controls{direction:rtl}
 .site-shell[dir=rtl] .slide-controls>button:first-child svg{transform:none}
 .site-shell[dir=rtl] .slide-controls>button:last-child svg{transform:rotate(180deg)}
+.service-options article{position:relative}.service-options .service-price{display:block;margin-top:9px;color:var(--cyan);font-weight:800;font-size:13px;letter-spacing:.01em}

@@ -41,23 +41,23 @@ const content = {
           audience: "للأفراد",
           lead: "حضور مهني يعبّر عن خبرتك ويقوّي فرصك.",
           items: [
-            ["سيرة تبرزك", "سيرة احترافية متوافقة مع أنظمة الفرز ATS."],
-            ["حضور يعرّف بك", "إعادة بناء LinkedIn ليعرض قيمتك المهنية بوضوح."],
-            ["خطاب يوصلك", "خطاب يربط خبرتك مباشرة بالفرصة المستهدفة."],
-            ["ملف يليق بالقيادة", "سيرة تنفيذية تبرز الأثر والقرارات والإنجازات."],
-            ["مراجعة تضبط سيرتك", "تشخيص دقيق للسيرة مع توصيات قابلة للتطبيق."],
-            ["انطلاقة متكاملة", "سيرة باللغتين وLinkedIn وخطاب تقديم متكامل."],
+            ["سيرة تبرزك", "سيرة احترافية متوافقة مع أنظمة الفرز ATS.", "من 179 ر.س"],
+            ["حضور يعرّف بك", "إعادة بناء LinkedIn ليعرض قيمتك المهنية بوضوح.", "من 179 ر.س"],
+            ["خطاب يوصلك", "خطاب يربط خبرتك مباشرة بالفرصة المستهدفة.", "من 119 ر.س"],
+            ["ملف يليق بالقيادة", "سيرة تنفيذية تبرز الأثر والقرارات والإنجازات.", "من 349 ر.س"],
+            ["مراجعة تضبط سيرتك", "تشخيص دقيق للسيرة مع توصيات قابلة للتطبيق.", "من 89 ر.س"],
+            ["انطلاقة متكاملة", "سيرة باللغتين وLinkedIn وخطاب تقديم متكامل.", "من 549 ر.س"],
           ],
         },
         {
           audience: "للأعمال",
           lead: "أنظمة واضحة تربط القياس بالمسؤولية والقرار.",
           items: [
-            ["أداء ينقاس", "ربط المستهدفات بالمؤشرات والنتائج والإجراءات."],
-            ["مؤشرات توضّح", "لوحة قياس مصممة وفق أولويات المنشأة."],
-            ["قرار يتنفّذ", "متابعة القرار من الاجتماع حتى التنفيذ والإغلاق."],
-            ["تقرير يختصر", "تحويل البيانات إلى موجز واضح يدعم القرار."],
-            ["تشغيل ينضبط", "توثيق الأدوار والاعتمادات ومسارات العمل."],
+            ["أداء ينقاس", "ربط المستهدفات بالمؤشرات والنتائج والإجراءات.", "249 ر.س"],
+            ["مؤشرات توضّح", "لوحة قياس مصممة وفق أولويات المنشأة.", "حسب النطاق"],
+            ["قرار يتنفّذ", "متابعة القرار من الاجتماع حتى التنفيذ والإغلاق.", "حسب النطاق"],
+            ["تقرير يختصر", "تحويل البيانات إلى موجز واضح يدعم القرار.", "حسب النطاق"],
+            ["تشغيل ينضبط", "توثيق الأدوار والاعتمادات ومسارات العمل.", "حسب النطاق"],
           ],
         },
       ],
@@ -138,23 +138,23 @@ const content = {
           audience: "Individuals",
           lead: "A professional presence that represents your experience and strengthens your opportunities.",
           items: [
-            ["Standout CV", "Professional writing optimized for ATS screening."],
-            ["LinkedIn Presence", "A rebuilt profile that communicates your professional value."],
-            ["Opportunity Letter", "A tailored letter connecting your experience to the role."],
-            ["Leadership Profile", "An executive CV focused on impact, decisions, and results."],
-            ["CV Review", "A detailed diagnostic with practical recommendations."],
-            ["Complete Launch", "Bilingual CV, LinkedIn profile, and cover letter."],
+            ["Standout CV", "Professional writing optimized for ATS screening.", "From SAR 179"],
+            ["LinkedIn Presence", "A rebuilt profile that communicates your professional value.", "From SAR 179"],
+            ["Opportunity Letter", "A tailored letter connecting your experience to the role.", "From SAR 119"],
+            ["Leadership Profile", "An executive CV focused on impact, decisions, and results.", "From SAR 349"],
+            ["CV Review", "A detailed diagnostic with practical recommendations.", "From SAR 89"],
+            ["Complete Launch", "Bilingual CV, LinkedIn profile, and cover letter.", "From SAR 549"],
           ],
         },
         {
           audience: "Businesses",
           lead: "Clear systems that connect measurement, accountability, and decisions.",
           items: [
-            ["Measurable Performance", "Connect targets with indicators, results, and actions."],
-            ["Clear Indicators", "A dashboard designed around organizational priorities."],
-            ["Decisions Delivered", "Track decisions from meeting through execution and closure."],
-            ["Executive Brief", "Turn data into a concise, decision-ready report."],
-            ["Disciplined Operations", "Document roles, approvals, and operating workflows."],
+            ["Measurable Performance", "Connect targets with indicators, results, and actions.", "SAR 249"],
+            ["Clear Indicators", "A dashboard designed around organizational priorities.", "Scope-based"],
+            ["Decisions Delivered", "Track decisions from meeting through execution and closure.", "Scope-based"],
+            ["Executive Brief", "Turn data into a concise, decision-ready report.", "Scope-based"],
+            ["Disciplined Operations", "Document roles, approvals, and operating workflows.", "Scope-based"],
           ],
         },
       ],
@@ -282,7 +282,7 @@ export default function Home() {
           </div>
           <div className={`catalog-showcase ${catalogAudience === 1 ? "business" : "individual"}`}>
             <aside className="catalog-aside"><span>0{catalogAudience + 1}</span><h3>{activeCatalog.audience}</h3><p>{activeCatalog.lead}</p><button onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button></aside>
-            <div className="service-options">{activeCatalog.items.map(([title, description], itemIndex) => <article className={activeCatalog.items.length === 5 && itemIndex > 2 ? "half" : ""} key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><h3>{title}</h3><p>{description}</p></article>)}</div>
+            <div className="service-options">{activeCatalog.items.map(([title, description, price], itemIndex) => <article className={activeCatalog.items.length === 5 && itemIndex > 2 ? "half" : ""} key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><h3>{title}</h3><p>{description}</p><span className="service-price">{price}</span></article>)}</div>
           </div>
         </section>
 

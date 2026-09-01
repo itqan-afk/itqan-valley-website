@@ -36,6 +36,8 @@ const content = {
       titleTop: "خدمات مصممة",
       titleBottom: "حول هدفك",
       choose: "اختر فئة الخدمات",
+      guarantee: "ضمان الجودة — نلتزم بالمخرجات المتفق عليها ونعدّل حتى رضاك.",
+      trust: ["مخرجات بالعربية والإنجليزية", "نطاق ومخرجات ومدة واضحة", "موثّقون في منصة العمل الحر"],
       groups: [
         {
           audience: "للأفراد",
@@ -133,6 +135,8 @@ const content = {
       titleTop: "Services designed",
       titleBottom: "around your goal",
       choose: "Choose a service category",
+      guarantee: "Quality guarantee — we deliver what's agreed and revise until you're satisfied.",
+      trust: ["Arabic & English deliverables", "Clear scope, deliverables & timeline", "Documented on the Freelance platform"],
       groups: [
         {
           audience: "Individuals",
@@ -281,7 +285,7 @@ export default function Home() {
             </div>
           </div>
           <div className={`catalog-showcase ${catalogAudience === 1 ? "business" : "individual"}`}>
-            <aside className="catalog-aside"><span>0{catalogAudience + 1}</span><h3>{activeCatalog.audience}</h3><p>{activeCatalog.lead}</p><button onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button></aside>
+            <aside className="catalog-aside"><span>0{catalogAudience + 1}</span><h3>{activeCatalog.audience}</h3><p>{activeCatalog.lead}</p><button onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button><div className="catalog-trust"><p className="guarantee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</p><div className="trust-chips">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div></aside>
             <div className="service-options">{activeCatalog.items.map(([title, description, price], itemIndex) => <article className={activeCatalog.items.length === 5 && itemIndex > 2 ? "half" : ""} key={title}><b>{String(itemIndex + 1).padStart(2, "0")}</b><h3>{title}</h3><p>{description}</p><span className="service-price">{price}</span></article>)}</div>
           </div>
         </section>

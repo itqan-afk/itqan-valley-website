@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Language = "ar" | "en";
 
-const TOTAL_SLIDES = 6;
 
 const content = {
   ar: {
@@ -221,109 +220,66 @@ function Brand({ compact = false, language }: { compact?: boolean; language: Lan
 }
 
 export default function Home() {
-  const [active, setActive] = useState(0);
   const [catalogAudience, setCatalogAudience] = useState(0);
   const [language, setLanguage] = useState<Language>("ar");
-  const touchStart = useRef<number | null>(null);
-  const wheelLocked = useRef(false);
   const t = content[language];
   const direction = language === "ar" ? "rtl" : "ltr";
   const activeCatalog = t.catalog.groups[catalogAudience];
   const whatsapp = `https://wa.me/966555365305?text=${encodeURIComponent(t.contact.whatsappMessage)}`;
   const email = `mailto:itqan@itqanvalley.com?subject=${encodeURIComponent(t.contact.emailSubject)}`;
-  const goTo = useCallback((index: number) => setActive(Math.max(0, Math.min(TOTAL_SLIDES - 1, index))), []);
+  const anchors = ["#solutions", "#services", "#proof", "#workflow", "#contact"];
 
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = direction;
   }, [language, direction]);
 
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft" || event.key === "PageDown") goTo(active + 1);
-      if (event.key === "ArrowRight" || event.key === "PageUp") goTo(active - 1);
-      if (event.key === "Home") goTo(0);
-      if (event.key === "End") goTo(TOTAL_SLIDES - 1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [active, goTo]);
+  return <main className={`site lang-${language}`} dir={direction}>
+    <header className="site-header"><div className="wrap">
+      <a className="brand-button" href="#top" aria-label={t.common.home}><Brand compact language={language} /></a>
+      <nav className="site-nav" aria-label={t.common.navigation}>{t.nav.slice(1).map((item, i) => <a key={item} href={anchors[i]}>{item}</a>)}</nav>
+      <div className="header-actions"><button className="language-toggle" onClick={() => setLanguage(language === "ar" ? "en" : "ar")} aria-label={t.common.language}>{language === "ar" ? "EN" : "عربي"}</button><a className="header-cta" href="#contact">{t.common.start}</a></div>
+    </div></header>
 
-  const onWheel = (event: React.WheelEvent) => {
-    const scroller = (event.target as HTMLElement).closest?.(".catalog-scroll") as HTMLElement | null;
-    if (scroller) {
-      const atEnd = event.deltaY > 0
-        ? scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1
-        : scroller.scrollTop <= 0;
-      if (!atEnd) return;
-    }
-    if (wheelLocked.current || Math.abs(event.deltaY) < 18) return;
-    wheelLocked.current = true;
-    goTo(active + (event.deltaY > 0 ? 1 : -1));
-    window.setTimeout(() => { wheelLocked.current = false; }, 650);
-  };
+    <section className="hero" id="top"><div className="wrap">
+      <p className="eyebrow">{t.hero.kicker}</p>
+      <h1>{t.hero.title}<br /><em>{t.hero.accent}</em></h1>
+      <p className="lead">{t.hero.text}</p>
+      <div className="hero-cta"><a className="btn btn-primary" href="#services">{t.hero.explore} <ArrowIcon /></a><a className="btn btn-wa" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon /> {t.hero.talk}</a></div>
+    </div></section>
 
-  return <main className={`site-shell lang-${language}`} dir={direction} onWheel={onWheel}>
-    <header className="site-header">
-      <button className="brand-button" onClick={() => goTo(0)} aria-label={t.common.home}><Brand compact language={language} /></button>
-      <nav aria-label={t.common.navigation}>{t.nav.map((item, index) => <button key={item} className={active === index ? "active" : ""} onClick={() => goTo(index)}><span>{String(index + 1).padStart(2, "0")}</span>{item}</button>)}</nav>
-      <div className="header-actions"><button className="language-toggle" onClick={() => setLanguage(language === "ar" ? "en" : "ar")} aria-label={t.common.language}>{language === "ar" ? "EN" : "عربي"}</button><button className="header-cta" onClick={() => goTo(5)}>{t.common.start}</button></div>
-    </header>
+    <section className="block light" id="solutions"><div className="wrap">
+      <div className="sec-top"><p className="eyebrow">{t.solutions.label}</p><h2>{t.solutions.title}</h2><p>{t.solutions.intro}</p></div>
+      <div className="sol-grid">{t.solutions.items.map((s) => <article className="sol" key={s.name}><div className="ph"><img src={s.image} alt={s.alt} /><b>{s.label}</b></div><div className="body"><small>{s.label}</small><h3>{s.name}</h3><p>{s.description}</p></div></article>)}</div>
+    </div></section>
 
-    <div className="slides-window" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }} onTouchEnd={(event) => {
-      if (touchStart.current === null) return;
-      const distance = touchStart.current - event.changedTouches[0].clientX;
-      if (Math.abs(distance) > 45) goTo(active + (distance > 0 ? 1 : -1));
-      touchStart.current = null;
-    }}>
-      <div className="slides-track" style={{ transform: `translate3d(${(direction === "rtl" ? 1 : -1) * active * 100}%, 0, 0)` }}>
-        <section className="slide hero-slide" aria-hidden={active !== 0}>
-          <div className="hero-orbit" aria-hidden="true"><span /><span /><span /></div>
-          <div className="hero-content"><p className="kicker"><span /> {t.hero.kicker}</p><h1>{t.hero.title}<br /><em>{t.hero.accent}</em></h1><p className="hero-text">{t.hero.text}</p><div className="hero-actions"><button className="primary-action" onClick={() => goTo(1)}>{t.hero.explore} <ArrowIcon /></button><button className="ghost-action" onClick={() => goTo(5)}>{t.hero.talk}</button></div></div>
-          <div className="hero-brand" aria-label={t.hero.identity}><Brand language={language} /></div><div className="hero-index"><b>01</b><span>06</span></div>
-        </section>
+    <section className="block navy" id="services"><div className="wrap">
+      <div className="sec-top"><p className="eyebrow">{t.catalog.label}</p><h2>{t.catalog.titleTop} {t.catalog.titleBottom}</h2><p>{t.catalog.choose}</p></div>
+      <div className="svc-switch" role="tablist" aria-label={t.catalog.choose}>{t.catalog.groups.map((g, i) => <button key={g.audience} role="tab" aria-selected={catalogAudience === i} className={catalogAudience === i ? "on" : ""} onClick={() => setCatalogAudience(i)}>{g.audience}</button>)}</div>
+      <div className="cards">{activeCatalog.items.map(([title, description, price, rec], i) => <article className={i === 0 || rec ? "pc pc-feat" : "pc"} key={title}>{i === 0 || rec ? <span className="pc-best">{rec || t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
+      <div className="guar"><div className="gt"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</div><div className="gc">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div>
+    </div></section>
 
-        <section className="slide services-slide" aria-hidden={active !== 1}>
-          <div className="slide-heading"><p className="framed-label"><span /> {t.solutions.label} <span /></p><h2>{t.solutions.title}</h2><p>{t.solutions.intro}</p></div>
-          <div className="services-grid">{t.solutions.items.map((service, index) => <article className="service-card" key={service.name}><div className="service-media"><img src={service.image} alt={service.alt} /><span>0{index + 1}</span></div><div className="service-copy"><small>{service.label}</small><h3>{service.name}</h3><p>{service.description}</p></div></article>)}</div>
-        </section>
-
-        <section className="slide catalog-slide" aria-hidden={active !== 2}>
-          <div className="catalog-heading">
-            <div><p className="framed-label light"><span /> {t.catalog.label} <span /></p><h2>{t.catalog.titleTop} {t.catalog.titleBottom}</h2></div>
-            <div className="catalog-switch" role="tablist" aria-label={t.catalog.choose}>
-              {t.catalog.groups.map((group, index) => <button key={group.audience} role="tab" aria-selected={catalogAudience === index} className={catalogAudience === index ? "active" : ""} onClick={() => setCatalogAudience(index)}><span>0{index + 1}</span>{group.audience}</button>)}
-            </div>
-          </div>
-          <div className="cat-lead"><p>{activeCatalog.lead}</p><button className="cat-cta" onClick={() => goTo(5)}>{t.common.start} <ArrowIcon /></button></div>
-          <div className="catalog-scroll">
-            <div className="price-cards">{activeCatalog.items.map(([title, description, price, rec], i) => <article className={i === 0 || rec ? "pc pc-feat" : "pc"} key={title}>{i === 0 || rec ? <span className="pc-best">{rec || t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
-            <div className="catalog-trust"><p className="guarantee"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</p><div className="trust-chips">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div>
-          </div>
-        </section>
-
-        <section className="slide proof-slide" aria-hidden={active !== 3}>
-          <div className="proof-copy"><p className="framed-label light"><span /> {t.proof.label} <span /></p><h2>{t.proof.title}<br /><em>{t.proof.accent}</em></h2><p>{t.proof.text}</p><div className="facts-grid">{t.proof.facts.map(([value, label]) => <article key={`${value}-${label}`}><strong>{value}</strong><span>{label}</span></article>)}</div></div>
-          <div className="proof-visual"><div className="dashboard-frame"><div className="frame-top"><span /><span /><span /><b>{t.proof.dashboard}</b></div><img src="/dashboard-preview.png" alt={t.proof.dashboardAlt} /></div><div className="proof-badge"><b>20</b><span>{t.proof.badge}<br />{t.proof.badgeSub}</span></div></div>
-        </section>
-
-        <section className="slide workflow-slide" aria-hidden={active !== 4}>
-          <div className="slide-heading"><p className="framed-label"><span /> {t.workflow.label} <span /></p><h2>{t.workflow.title}</h2><p>{t.workflow.intro}</p></div>
-          <div className="workflow-bridge" aria-label={t.workflow.bridgeLabel}>
-            <strong>{t.workflow.bridgeTitle}</strong>
-            <div>{t.workflow.bridge.map((item, index) => <span key={item}><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}</div>
-          </div>
-          <div className="workflow-grid">{t.workflow.steps.map(([number, title, description], index) => <article key={number}><span className="step-number">{number}</span><div className="step-dot" />{index < t.workflow.steps.length - 1 && <i aria-hidden="true" />}<h3>{title}</h3><p>{description}</p></article>)}</div>
-        </section>
-
-        <section className="slide contact-slide" aria-hidden={active !== 5}>
-          <div className="contact-panel"><p className="framed-label light"><span /> {t.contact.label} <span /></p><h2>{t.contact.title}<br /><em>{t.contact.accent}</em></h2><p>{t.contact.text}</p><div className="contact-actions"><a className="whatsapp-action" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon /> {t.contact.whatsapp}</a><a className="mail-action" href={email}><MailIcon /> {t.contact.email}</a></div></div>
-          <aside className="contact-summary"><Brand language={language} /><p>{t.contact.summary}</p><div className="summary-points">{t.contact.points.map((point) => <span key={point}>{point}</span>)}</div></aside>
-          <footer><span>{t.contact.copyright}</span><b>{t.contact.certificate}</b></footer>
-        </section>
+    <section className="block light" id="proof"><div className="wrap">
+      <div className="proof-grid">
+        <div><p className="eyebrow">{t.proof.label}</p><h2 className="proof-h">{t.proof.title} <em>{t.proof.accent}</em></h2><p className="proof-text">{t.proof.text}</p><div className="facts">{t.proof.facts.map(([value, label]) => <article key={`${value}-${label}`}><strong>{value}</strong><span>{label}</span></article>)}</div></div>
+        <div className="dash"><div className="frame"><div className="bar"><i /><i /><i /></div><img src="/dashboard-preview.png" alt={t.proof.dashboardAlt} /></div><div className="badge"><b>20</b><span>{t.proof.badge} {t.proof.badgeSub}</span></div></div>
       </div>
-    </div>
+    </div></section>
 
-    <div className="slide-controls" aria-label={t.controls.label}><button onClick={() => goTo(active - 1)} disabled={active === 0} aria-label={t.controls.previous}><ArrowIcon /></button><div>{t.nav.map((item, index) => <button key={item} className={active === index ? "active" : ""} onClick={() => goTo(index)} aria-label={`${t.controls.go} ${item}`} />)}</div><button onClick={() => goTo(active + 1)} disabled={active === TOTAL_SLIDES - 1} aria-label={t.controls.next}><ArrowIcon /></button></div>
+    <section className="block alt" id="workflow"><div className="wrap">
+      <div className="sec-top"><p className="eyebrow">{t.workflow.label}</p><h2>{t.workflow.title}</h2><p>{t.workflow.intro}</p></div>
+      <div className="bridge">{t.workflow.bridge.map((x) => <span key={x}>{x}</span>)}</div>
+      <div className="steps">{t.workflow.steps.map(([number, title, description]) => <article className="step" key={number}><b>{number}</b><h4>{title}</h4><p>{description}</p></article>)}</div>
+    </div></section>
+
+    <section className="block navy" id="contact"><div className="wrap">
+      <div className="contact">
+        <div><p className="eyebrow">{t.contact.label}</p><h2 className="contact-h">{t.contact.title} <em>{t.contact.accent}</em></h2><p className="contact-text">{t.contact.text}</p><div className="contact-cta"><a className="btn btn-wa" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon /> {t.contact.whatsapp}</a><a className="btn btn-ghost" href={email}><MailIcon /> {t.contact.email}</a></div></div>
+        <aside className="contact-card"><Brand language={language} /><p>{t.contact.summary}</p><div className="pts">{t.contact.points.map((point) => <span key={point}>{point}</span>)}</div></aside>
+      </div>
+    </div></section>
+
+    <footer className="foot"><div className="wrap"><span>{t.contact.copyright}</span><span>{t.contact.certificate}</span></div></footer>
   </main>;
 }

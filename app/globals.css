@@ -60,16 +60,13 @@
 .catalog-scroll{scrollbar-width:none}
 .catalog-scroll::-webkit-scrollbar{display:none}
 @media(min-width:701px){
-.catalog-slide .price-cards{gap:10px}
-.catalog-slide .pc{padding:14px 15px;gap:5px}
-.catalog-slide .pc h3{font-size:clamp(15px,1.15vw,17px)}
-.catalog-slide .pc>p{font-size:12px;line-height:1.42}
-.catalog-slide .pc-foot{padding-top:9px}
-.catalog-slide .pc-price{font-size:18px}
+.catalog-scroll{display:flex;flex-direction:column}
+.catalog-slide .price-cards{display:flex;flex-wrap:wrap;gap:12px;align-content:stretch;flex:1;min-height:0}
+.catalog-slide .pc{flex:1 1 370px;min-width:0}
+.catalog-slide .pc>p{flex:1}
 .catalog-slide .cat-lead{margin-bottom:9px}
 .catalog-slide .catalog-heading{margin-bottom:10px}
 .catalog-slide .catalog-trust{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:11px;padding-top:11px;border-top:1px solid #ffffff14;width:100%}
 .catalog-slide .catalog-trust .guarantee{margin:0;font-size:12.5px}
-.catalog-slide .catalog-trust .trust-chips{gap:6px}
 .catalog-slide .catalog-trust .trust-chips span{font-size:10.5px;padding:3px 9px}
 }

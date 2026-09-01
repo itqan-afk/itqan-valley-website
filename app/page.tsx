@@ -243,7 +243,7 @@ export default function Home() {
 
     <section className="hero" id="top"><div className="wrap">
       <p className="eyebrow">{t.hero.kicker}</p>
-      <h1>{t.hero.title}<br /><em>{t.hero.accent}</em></h1>
+      <h1>{t.hero.title} <em>{t.hero.accent}</em></h1>
       <p className="lead">{t.hero.text}</p>
       <div className="hero-cta"><a className="btn btn-primary" href="#services">{t.hero.explore} <ArrowIcon /></a><a className="btn btn-wa" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppIcon /> {t.hero.talk}</a></div>
     </div></section>

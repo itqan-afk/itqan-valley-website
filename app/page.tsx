@@ -216,7 +216,7 @@ function WhatsAppIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><pa
 
 function Brand({ compact = false, language }: { compact?: boolean; language: Language }) {
   const brand = content[language].brand;
-  return <div className={`brand-lockup${compact ? " compact" : ""}`}><img src="/itqan-mark.png" alt={brand.alt} /><span className="brand-copy"><b>{brand.primary}</b><strong>{brand.secondary}</strong><small>{brand.tagline}</small></span></div>;
+  return <div className={`brand-lockup${compact ? " compact" : ""}`}><img src="/itqan-mark-open.png" alt={brand.alt} /><span className="brand-copy"><b>{brand.primary}</b><strong>{brand.secondary}</strong><small>{brand.tagline}</small></span></div>;
 }
 
 export default function Home() {
@@ -256,7 +256,7 @@ export default function Home() {
     <section className="block navy" id="services"><div className="wrap">
       <div className="sec-top"><p className="eyebrow">{t.catalog.label}</p><h2>{t.catalog.titleTop} {t.catalog.titleBottom}</h2><p>{t.catalog.choose}</p></div>
       <div className="svc-switch" role="tablist" aria-label={t.catalog.choose}>{t.catalog.groups.map((g, i) => <button key={g.audience} role="tab" aria-selected={catalogAudience === i} className={catalogAudience === i ? "on" : ""} onClick={() => setCatalogAudience(i)}>{g.audience}</button>)}</div>
-      <div className="cards">{activeCatalog.items.map(([title, description, price, rec], i) => <article className={i === 0 || rec ? "pc pc-feat" : "pc"} key={title}>{i === 0 || rec ? <span className="pc-best">{rec || t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
+      <div className={`cards ${catalogAudience === 0 ? "cards-individual" : "cards-business"}`}>{activeCatalog.items.map(([title, description, price, rec], i) => <article className={i === 0 || rec ? "pc pc-feat" : "pc"} key={title}>{i === 0 || rec ? <span className="pc-best">{rec || t.catalog.popular}</span> : null}<span className="pc-cat">{activeCatalog.audience}</span><h3>{title}</h3><p>{description}</p><div className="pc-foot"><span className="pc-price">{price}</span><a className="pc-go" href={whatsapp} target="_blank" rel="noreferrer">{t.catalog.order} ↗</a></div></article>)}</div>
       <div className="guar"><div className="gt"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V5z" /><path d="M9 12l2 2 4-4" /></svg>{t.catalog.guarantee}</div><div className="gc">{t.catalog.trust.map((x) => <span key={x}>{x}</span>)}</div></div>
     </div></section>
 

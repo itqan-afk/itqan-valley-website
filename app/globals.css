@@ -19,10 +19,13 @@ img{display:block;max-width:100%}svg{flex:none}
 .brand-lockup{display:flex;align-items:center;gap:14px}
 .brand-lockup img{width:64px;height:58px;flex:none;object-fit:contain;filter:none}
 .brand-lockup.compact img{width:58px;height:52px}
-.brand-copy{display:flex;flex-direction:column;line-height:1.12}
-.brand-copy b{font-size:18px;font-weight:800;color:var(--surface)}
-.brand-lockup.compact .brand-copy b{font-size:16px}
-.brand-copy strong{font-size:9px;font-weight:700;color:var(--onNm);letter-spacing:.16em}
+.brand-copy{display:flex;flex-direction:column;justify-content:center;line-height:1.06}
+.brand-copy b{font-family:"SaudiWeb","Thmanyah Sans",Arial,sans-serif;font-size:21px;font-weight:900;color:var(--surface);letter-spacing:-.035em}
+.brand-lockup.compact .brand-copy b{font-size:18px}
+.brand-copy strong{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:9.5px;font-weight:800;color:var(--cyanS);letter-spacing:.18em;margin-top:4px}
+.lang-en .brand-copy b{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:800;letter-spacing:.045em}
+.lang-en .brand-lockup.compact .brand-copy b{font-size:16px}
+.lang-en .brand-copy strong{font-family:"SaudiWeb","Thmanyah Sans",Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:0;margin-top:3px}
 .brand-copy small{display:none}
 /* header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(0,33,66,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
@@ -79,7 +82,11 @@ img{display:block;max-width:100%}svg{flex:none}
 .cards-individual .pc>p{color:var(--mut)}
 .cards-individual .pc-cat,.cards-individual .pc-price,.cards-individual .pc-go{color:var(--navy2)}
 .cards-individual .pc-foot{border-top-color:rgba(0,109,129,.16)}
-.cards-business .pc{background:var(--navy2)}
+.cards-business .pc:not(.pc-feat){background:var(--surface2);border-color:rgba(14,173,176,.38);border-block-start:4px solid var(--cyanS)}
+.cards-business .pc:not(.pc-feat) h3{color:var(--navy)}
+.cards-business .pc:not(.pc-feat)>p{color:var(--mut)}
+.cards-business .pc:not(.pc-feat) .pc-cat,.cards-business .pc:not(.pc-feat) .pc-price,.cards-business .pc:not(.pc-feat) .pc-go{color:var(--navy2)}
+.cards-business .pc:not(.pc-feat) .pc-foot{border-top-color:rgba(0,109,129,.18)}
 .pc-feat,.cards-individual .pc-feat{background:linear-gradient(135deg,#006D81,#0EADB0);border-color:var(--cyanS)}
 .pc-feat h3,.cards-individual .pc-feat h3{color:var(--surface)}
 .pc-feat>p,.cards-individual .pc-feat>p{color:rgba(255,255,255,.84)}
@@ -130,11 +137,15 @@ img{display:block;max-width:100%}svg{flex:none}
 .contact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px}
 .contact-card .brand-lockup{margin-bottom:14px}
 .contact-card .brand-lockup img{width:86px;height:78px}
+.contact-card .brand-copy b{font-size:24px}
+.contact-card .brand-copy strong{font-size:11px}
+.lang-en .contact-card .brand-copy b{font-size:21px}
+.lang-en .contact-card .brand-copy strong{font-size:15px}
 .contact-card>p{color:var(--onNm);font-size:14px;line-height:1.8;margin-top:4px}
 .pts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .pts span{border:1.5px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:700}
 @media(max-width:760px){.contact{grid-template-columns:1fr}}
-@media(max-width:560px){.site-header .wrap{height:70px}.brand-lockup{gap:9px}.brand-lockup.compact img{width:50px;height:46px}.brand-lockup.compact .brand-copy b{font-size:14px}.brand-copy strong{font-size:8px}.header-cta{display:none}.contact-card .brand-lockup img{width:72px;height:66px}}
+@media(max-width:560px){.site-header .wrap{height:70px}.brand-lockup{gap:9px}.brand-lockup.compact img{width:50px;height:46px}.brand-lockup.compact .brand-copy b{font-size:16px}.brand-copy strong{font-size:8px}.lang-en .brand-lockup.compact .brand-copy b{font-size:14px}.lang-en .brand-copy strong{font-size:11px}.header-cta{display:none}.contact-card .brand-lockup img{width:72px;height:66px}}
 /* footer */
 .foot{background:var(--navy);color:var(--onNm);padding:26px 0;border-top:1px solid rgba(255,255,255,.08)}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:13px}

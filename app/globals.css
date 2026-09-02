@@ -1,5 +1,7 @@
 @font-face{font-family:"SaudiWeb";src:url("/fonts/SaudiWeb-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"SaudiWeb";src:url("/fonts/SaudiWeb-Bold.woff2") format("woff2");font-weight:700 900;font-display:swap}
+@font-face{font-family:"Alexandria Brand";src:url("/fonts/Alexandria-Arabic.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"Alexandria Brand";src:url("/fonts/Alexandria-Latin.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{--bg:#F2F8F8;--surface:#FFFFFF;--surface2:#F2F8F8;--alt:#FFFFFF;--ink:#002142;--mut:#006D81;--line:rgba(0,109,129,.18);--navy:#002142;--navy2:#006D81;--cyan:#006D81;--cyanS:#0EADB0;--blue:#006D81;--price:#006D81;--onN:#FFFFFF;--onNm:rgba(255,255,255,.72);--ring:#0EADB0}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -19,13 +21,13 @@ img{display:block;max-width:100%}svg{flex:none}
 .brand-lockup{display:flex;align-items:center;gap:14px}
 .brand-lockup img{width:64px;height:58px;flex:none;object-fit:contain;filter:none}
 .brand-lockup.compact img{width:58px;height:52px}
-.brand-copy{display:flex;flex-direction:column;justify-content:center;line-height:1.06}
-.brand-copy b{font-family:"SaudiWeb","Thmanyah Sans",Arial,sans-serif;font-size:21px;font-weight:900;color:var(--surface);letter-spacing:-.035em}
-.brand-lockup.compact .brand-copy b{font-size:18px}
-.brand-copy strong{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:9.5px;font-weight:800;color:var(--cyanS);letter-spacing:.18em;margin-top:4px}
-.lang-en .brand-copy b{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:800;letter-spacing:.045em}
-.lang-en .brand-lockup.compact .brand-copy b{font-size:16px}
-.lang-en .brand-copy strong{font-family:"SaudiWeb","Thmanyah Sans",Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:0;margin-top:3px}
+.brand-copy{display:flex;flex-direction:column;justify-content:center;line-height:1}
+.brand-copy b{font-family:"Alexandria Brand","SaudiWeb",Arial,sans-serif;font-size:23px;font-weight:900;color:var(--surface);letter-spacing:-.06em}
+.brand-lockup.compact .brand-copy b{font-size:20px}
+.brand-copy strong{font-family:"Alexandria Brand",Arial,sans-serif;font-size:9.5px;font-weight:800;color:var(--cyanS);letter-spacing:.16em;margin-top:6px}
+.lang-en .brand-copy b{font-size:21px;font-weight:900;letter-spacing:.01em}
+.lang-en .brand-lockup.compact .brand-copy b{font-size:18px}
+.lang-en .brand-copy strong{font-size:13.5px;font-weight:900;letter-spacing:-.045em;margin-top:5px}
 .brand-copy small{display:none}
 /* header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(0,33,66,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
@@ -137,15 +139,15 @@ img{display:block;max-width:100%}svg{flex:none}
 .contact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px}
 .contact-card .brand-lockup{margin-bottom:14px}
 .contact-card .brand-lockup img{width:86px;height:78px}
-.contact-card .brand-copy b{font-size:24px}
+.contact-card .brand-copy b{font-size:27px}
 .contact-card .brand-copy strong{font-size:11px}
-.lang-en .contact-card .brand-copy b{font-size:21px}
+.lang-en .contact-card .brand-copy b{font-size:24px}
 .lang-en .contact-card .brand-copy strong{font-size:15px}
 .contact-card>p{color:var(--onNm);font-size:14px;line-height:1.8;margin-top:4px}
 .pts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .pts span{border:1.5px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:700}
 @media(max-width:760px){.contact{grid-template-columns:1fr}}
-@media(max-width:560px){.site-header .wrap{height:70px}.brand-lockup{gap:9px}.brand-lockup.compact img{width:50px;height:46px}.brand-lockup.compact .brand-copy b{font-size:16px}.brand-copy strong{font-size:8px}.lang-en .brand-lockup.compact .brand-copy b{font-size:14px}.lang-en .brand-copy strong{font-size:11px}.header-cta{display:none}.contact-card .brand-lockup img{width:72px;height:66px}}
+@media(max-width:560px){.site-header .wrap{height:70px}.brand-lockup{gap:9px}.brand-lockup.compact img{width:50px;height:46px}.brand-lockup.compact .brand-copy b{font-size:18px}.brand-copy strong{font-size:8px}.lang-en .brand-lockup.compact .brand-copy b{font-size:15px}.lang-en .brand-copy strong{font-size:11px}.header-cta{display:none}.contact-card .brand-lockup img{width:72px;height:66px}}
 /* footer */
 .foot{background:var(--navy);color:var(--onNm);padding:26px 0;border-top:1px solid rgba(255,255,255,.08)}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:13px}

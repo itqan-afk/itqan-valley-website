@@ -216,7 +216,7 @@ function WhatsAppIcon() { return <svg aria-hidden="true" viewBox="0 0 24 24"><pa
 
 function Brand({ compact = false, language }: { compact?: boolean; language: Language }) {
   const brand = content[language].brand;
-  return <div className={`brand-lockup${compact ? " compact" : ""}`}><img src="/itqan-icon.svg" alt={brand.alt} /><span className="brand-copy"><b>{brand.primary}</b><strong>{brand.secondary}</strong><small>{brand.tagline}</small></span></div>;
+  return <div className={`brand-lockup${compact ? " compact" : ""}`}><img src="/itqan-mark.png" alt={brand.alt} /><span className="brand-copy"><b>{brand.primary}</b><strong>{brand.secondary}</strong><small>{brand.tagline}</small></span></div>;
 }
 
 export default function Home() {
